@@ -9,7 +9,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1
+Release:	2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -17,6 +17,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.
 # generated from kde-i18n
 #Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 Patch0:		%{name}-fix-amor.patch
+Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -193,6 +194,7 @@ Pliki nag≥Ûwkowe dla kdetoys.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
@@ -220,10 +222,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-ALD=$RPM_BUILD_ROOT%{_applnkdir}
-install -d $ALD/.hidden
-mv $ALD/{System/ScreenSavers,.hidden}
-mv $ALD/{Toys,Amusements}
+mv $RPM_BUILD_ROOT%{_applnkdir}/{Toys,Amusements}
 
 #bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
@@ -299,7 +298,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
-%{_applnkdir}/.hidden/ScreenSavers/ktux.desktop
+%{_datadir}/apps/kscreensaver/ktux.desktop
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
