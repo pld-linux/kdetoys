@@ -9,7 +9,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	%{_ver}
-Release:	0.2
+Release:	0.3
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -32,6 +32,7 @@ Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 %define		_htmldir	/usr/share/doc/kde/HTML
 
 %define		no_install_post_chrpath		1
@@ -221,6 +222,7 @@ done
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -229,20 +231,21 @@ mv $RPM_BUILD_ROOT%{_applnkdir}/{Toys,Amusements}
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
-%find_lang amor			--with-kde
-%find_lang kaphorism		--with-kde
-#%find_lang kfifteenapplet 	--with-kde
-%find_lang kmoon		--with-kde
-%find_lang kodo			--with-kde
-%find_lang kteatime		--with-kde
-#%find_lang kscore		--with-kde
-#%find_lang ktux 		--with-kde
-%find_lang kweather		--with-kde
-%find_lang kworldclock		--with-kde
+%find_lang	amor		--with-kde
+%find_lang	kaphorism	--with-kde
+%find_lang	kfifteenapplet 	--with-kde
+%find_lang	kmoon		--with-kde
+%find_lang	kodo		--with-kde
+%find_lang	kteatime	--with-kde
+%find_lang	ktux 		--with-kde
+%find_lang	kweather	--with-kde
+%find_lang	kworldclock	--with-kde
+#%find_lang	keyesapplet	--with-kde
 
 # propably should be in other packages - kde-i18n to fix:
-#%find_lang kfortune	--with-kde
-#%find_lang kscoreapplet	--with-kde
+#%find_lang	kscoreapplet	--with-kde
+
+install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -260,9 +263,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
 %{_applnkdir}/Amusements/amor.desktop
 %{_pixmapsdir}/*/*/*/amor*
+%{_mandir}/man1/amor.*
 
-#%files fifteen -f kfifteenapplet.lang
-%files fifteen
+%files fifteen -f kfifteenapplet.lang
 %defattr(644,root,root,755)
 %{_libdir}/kde3/fifteen_panelapplet.la
 %attr(0755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
@@ -274,6 +277,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kaphorism
 %{_applnkdir}/Amusements/kaphorism.desktop
 %{_pixmapsdir}/*/*/*/kaphorism*
+%{_mandir}/man1/kaphorism.*
 
 %files kmoon -f kmoon.lang
 %defattr(644,root,root,755)
@@ -281,6 +285,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmoon
 %{_applnkdir}/Amusements/kmoon.desktop
 %{_pixmapsdir}/*/*/*/kmoon*
+%{_mandir}/man1/kmoon.*
 
 %files kodo -f kodo.lang
 %defattr(644,root,root,755)
@@ -288,6 +293,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kodo
 %{_applnkdir}/Amusements/kodo.desktop
 %{_pixmapsdir}/*/*/*/kodo*
+%{_mandir}/man1/kodo.*
 
 %files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
@@ -295,13 +301,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kteatime
 %{_applnkdir}/Amusements/kteatime.desktop
 %{_pixmapsdir}/*/*/*/kteatime*
+%{_mandir}/man1/kteatime.*
 
-#%files ktux -f ktux.lang
-%files ktux
+%files ktux -f ktux.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
 %{_datadir}/apps/kscreensaver/ktux.desktop
+%{_mandir}/man1/ktux.*
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
@@ -312,6 +319,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/services/kweatherservice.desktop
 %{_datadir}/apps/kweather
+%{_mandir}/man1/kweatherservice.*
+%{_mandir}/man1/reportview.*
 
 %files kworldclock -f kworldclock.lang
 %defattr(644,root,root,755)
@@ -320,6 +329,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
 %{_applnkdir}/Amusements/kworldclock.desktop
 %{_pixmapsdir}/*/*/*/kworldclock*
+%{_mandir}/man1/kworldclock.*
 
 %files ww
 %defattr(644,root,root,755)
