@@ -1,11 +1,11 @@
 
 %define		_state		snapshots
 %define		_ver		3.2.0	
-%define		_snap		040511
+%define		_snap		040517
 %define		_packager	adgor
 
-%define		_minlibsevr	9:3.2.90.040508
-%define		_minbaseevr	9:3.2.90.040508
+%define		_minlibsevr	9:3.2.90.040515
+%define		_minbaseevr	9:3.2.90.040515
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -14,7 +14,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE嚔赤殻會
 Name:		kdetoys
 Version:	%{_ver}.%{_snap}
-Release:	2
+Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -30,6 +30,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	unsermake >= 040511
 BuildRequires:	zlib-devel
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -205,8 +206,8 @@ export UNSERMAKE=/usr/share/unsermake/unsermake
 
 %configure \
 	--disable-rpath \
+	--enable-final \
 	--with-qt-libraries=%{_libdir} \
-	--enable-final
 
 %{__make}
 
@@ -216,13 +217,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
-
-# Workaround for doc caches (unsermake bug?)
-cd doc
-for i in `find . -name index.cache.bz2`; do
-	install -c -p -m 644 $i $RPM_BUILD_ROOT%{_kdedocdir}/en/$i
-done
-cd -	 
 
 # Debian manpages
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
@@ -235,32 +229,6 @@ install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 %find_lang kweather	--with-kde
 %find_lang kworldclock	--with-kde
 
-files="\
-	amor \
-	kmoon \
-	kodo \
-	kteatime \
-	kweather \
-	kworldclock"
-
-for i in $files; do
-	> ${i}_en.lang
-	echo "%defattr(644,root,root,755)" > ${i}_en.lang
-	grep en\/ ${i}.lang|grep -v apidocs >> ${i}_en.lang
-	grep -v apidocs $i.lang|grep -v en\/ > ${i}.lang.1
-	mv ${i}.lang.1 ${i}.lang
-done
-
-durne=`ls -1 *.lang|grep -v _en`
-
-for i in $durne; do
-	echo $i >> control
-	grep -v en\/ $i|grep -v apidocs >> ${i}.1
-	if [ -f ${i}.1 ] ; then
-		mv ${i}.1 ${i}
-	fi
-done
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -268,7 +236,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/*.h
 
-%files amor -f amor_en.lang
+%files amor -f amor.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/amor
 %{_datadir}/apps/amor
@@ -288,7 +256,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
-%files kmoon -f kmoon_en.lang
+%files kmoon -f kmoon.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmoon
 %{_datadir}/apps/kmoon
@@ -296,7 +264,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/*/kmoon*
 %{_mandir}/man1/kmoon.1*
 
-%files kodo -f kodo_en.lang
+%files kodo -f kodo.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kodo
 %{_datadir}/apps/kodo
@@ -304,7 +272,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/*/kodo*
 %{_mandir}/man1/kodo.1*
 
-%files kteatime -f kteatime_en.lang
+%files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kteatime
 %{_datadir}/apps/kteatime
@@ -319,7 +287,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kscreensaver/ktux.desktop
 %{_mandir}/man1/ktux.1*
 
-%files kweather -f kweather_en.lang
+%files kweather -f kweather.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kweatherreport
 %attr(755,root,root) %{_bindir}/kweatherservice
@@ -343,7 +311,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/kweatherreport.1*
 %{_mandir}/man1/kweatherservice.1*
 
-%files kworldclock -f kworldclock_en.lang
+%files kworldclock -f kworldclock.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kworldclock
 %{_datadir}/apps/kworldclock
