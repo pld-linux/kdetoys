@@ -1,7 +1,7 @@
 
 %define         _state          snapshots
 %define         _ver		3.1.90
-%define         _snap		030617
+%define         _snap		030621
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -16,7 +16,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	5db8d23ba830620f50d78c737f52dd6c
+# Source0-md5:	6457c930dde2ff1e64e030500ae16345
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -270,6 +270,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/kde3/weather_sidebar.la
 %attr(0755,root,root) %{_libdir}/kde3/weather_sidebar.so*
 %{_datadir}/apps/kicker/applets/kweather.desktop
+%{_datadir}/apps/kweatherservice/stations.dat
 %{_datadir}/apps/konqsidebartng/add/weatherbar_add.desktop
 %{_datadir}/apps/konqsidebartng/entries/weatherbar.desktop
 %{_datadir}/services/kweatherservice.desktop
