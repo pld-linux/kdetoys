@@ -1,7 +1,7 @@
 
-%define         _state          snapshots
-%define         _ver		3.1.93
-%define         _snap		031105
+%define		_state		snapshots
+%define		_ver		3.1.93
+%define		_snap		031105
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -20,13 +20,13 @@ Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
+BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdebase-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -150,7 +150,7 @@ Tux-in-a-Spaceship screen saver.
 %description ktux -l pl
 Wygaszacz ekranu Tux-w-statku-kosmicznym.
 
-%package	kweather
+%package kweather
 Summary:	Kicker applet that will display the current weather outside
 Summary(pl):	Applet kickera wy¶wietlaj±cy pogodê na zewn±trz
 Group:		X11/Applications
@@ -177,7 +177,7 @@ globe.
 %description kworldclock -l pl
 Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 
-%package	ww
+%package ww
 Summary:	World Wide Watch applet
 Summary(pl):	Applet World Wide Watch
 Group:		X11/Applications
@@ -195,9 +195,8 @@ Applet World Wide Watch.
 %patch1 -p1
 
 %build
-
-for f in `find . -name *.desktop` ; do
-	sed -i 's/\[nb\]/\[no\]/g' $f
+for f in `find . -name \*.desktop | xargs grep -l '\[nb\]'` ; do
+	echo -e ',s/\[nb\]=/[no]=/\n,w' | ed $f 2>/dev/null
 done
 
 %{__make} -f admin/Makefile.common cvs
