@@ -1,7 +1,7 @@
 
-%define         _state          snapshots                                        
+%define         _state          snapshots
 %define         _ver		3.2
-%define         _snap		030602
+%define         _snap		030613
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -15,8 +15,8 @@ Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	93e354f27ea89a06fa5637f8b9a93abb
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
+# Source0-md5:	75ca4bf72428a63c80fd75aebec116e0
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -31,6 +31,7 @@ Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_htmldir	%{_docdir}/kde/HTML
+%define		_icondir	%{_datadir}/icons
 
 %define		no_install_post_chrpath		1
 
@@ -185,9 +186,6 @@ Applet World Wide Watch.
 %patch1 -p1
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 for plik in `find ./ -name *.desktop` ; do
 	echo $plik
@@ -201,7 +199,10 @@ done
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_appsdir=%{_applnkdir} \
+	kde_htmldir=%{_htmldir}
 
 %find_lang amor			--with-kde
 %find_lang kmoon		--with-kde
@@ -225,7 +226,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/amor
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
 %{_desktopdir}/amor.desktop
-%{_pixmapsdir}/*/*/*/amor*
+%{_icondir}/*/*/*/amor*
 
 %files fifteen
 %defattr(644,root,root,755)
@@ -238,21 +239,21 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/kmoon
 %{_datadir}/apps/kmoon
 %{_desktopdir}/kmoon.desktop
-%{_pixmapsdir}/*/*/*/kmoon*
+%{_icondir}/*/*/*/kmoon*
 
 %files kodo -f kodo.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kodo
 %{_datadir}/apps/kodo
 %{_desktopdir}/kodo.desktop
-%{_pixmapsdir}/*/*/*/kodo*
+%{_icondir}/*/*/*/kodo*
 
 %files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kteatime
 %{_datadir}/apps/kteatime
 %{_desktopdir}/kteatime.desktop
-%{_pixmapsdir}/*/*/*/kteatime*
+%{_icondir}/*/*/*/kteatime*
 
 %files ktux
 %defattr(644,root,root,755)
@@ -280,7 +281,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kworldclock
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
 %{_desktopdir}/kworldclock.desktop
-%{_pixmapsdir}/*/*/*/kworldclock*
+%{_icondir}/*/*/*/kworldclock*
 
 %files ww
 %defattr(644,root,root,755)
