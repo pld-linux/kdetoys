@@ -14,7 +14,6 @@ Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.
 Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 Patch0:		%{name}-applets-no-version.patch
 Patch1:		%{name}-fix-amor.patch
-Patch2:		%{name}-fix-kmoon-mem-leak.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -191,7 +190,6 @@ Pliki nag³ówkowe dla kdetoys.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
