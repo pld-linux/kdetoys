@@ -21,7 +21,7 @@ Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
-BuildRequires:	kdebase-devel >= %{version}
+BuildRequires:	kdebase-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
