@@ -1,5 +1,5 @@
 
-%define         _state          stable                                        
+%define         _state          stable
 %define         _ver		3.1.3
 
 Summary:	Toys for KDE
@@ -159,7 +159,7 @@ Applet kickera wy¶wietlaj±cy pogodê na zewn±trz.
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
-Requires:       kdelibs >= %{version}
+Requires:	kdelibs >= %{version}
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
@@ -172,7 +172,7 @@ Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 Summary:	World Wide Watch applet
 Summary(pl):	Applet World Wide Watch
 Group:		X11/Applications
-Requires:       kdebase-kicker >= %{version}
+Requires:	kdebase-kicker >= %{version}
 
 
 %description ww
