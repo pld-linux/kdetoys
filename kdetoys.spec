@@ -8,13 +8,13 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	%{_ver}
-Release:	0.1
+Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Amusements
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	22bb5193eaaea38a7eb9a16d935af20f
 #Source0:	http://download.kde.org/%{_state}/%{_ver}/src/%{name}-%{_ver}.tar.bz2
-# Source0-md5:	8db947ef275b7eb255a4448baca419d9
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
 Icon:		kde-toys.xpm
@@ -330,7 +330,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kworldclock.desktop
 %{_iconsdir}/*/*/*/kworldclock*
 %{_mandir}/man1/kworldclock.1*
-%{_kdedocdir}/en/kwordclock
+%{_kdedocdir}/en/kworldclock
 
 %files ww
 %defattr(644,root,root,755)
