@@ -1,6 +1,7 @@
 
-%define         _state          stable                                        
-%define         _ver		3.1.1
+%define         _state          snapshots                                        
+%define         _ver		3.2
+%define         _snap		030329
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -9,14 +10,14 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1
+Release:	0.%{_snap}.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# generated from kde-i18n
-#Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+Source0:	http://team.pld.org.pl/~djurban/kde/%{name}-%{_snap}.tar.bz2
 Patch0:		%{name}-fix-amor.patch
+Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -28,7 +29,7 @@ BuildRequires:	zlib-devel
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_htmldir	/usr/share/doc/kde/HTML
+%define		_htmldir	%{_docdir}/kde/HTML
 
 %define		no_install_post_chrpath		1
 
@@ -191,16 +192,14 @@ Header files for kdetoys.
 Pliki nag³ówkowe dla kdetoys.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{_snap}
 %patch0 -p1
+%patch1 -p1
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
-
-CFLAGS="%{rpmcflags}"
-CXXFLAGS="%{rpmcflags}"
 
 for plik in `find ./ -name *.desktop` ; do
 	if [ -d $plik ]; then
@@ -209,9 +208,7 @@ for plik in `find ./ -name *.desktop` ; do
 	fi
 done
 
-%configure \
-	--enable-final \
-	--%{?debug:en}%{!?debug:dis}able-debug
+%configure
 
 %{__make}
 
@@ -220,27 +217,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-ALD=$RPM_BUILD_ROOT%{_applnkdir}
-install -d $ALD/.hidden
-mv $ALD/{System/ScreenSavers,.hidden}
-mv $ALD/{Toys,Amusements}
-
-#bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
-
 %find_lang amor			--with-kde
-%find_lang kaphorism		--with-kde
-#%find_lang kfifteenapplet 	--with-kde
 %find_lang kmoon		--with-kde
 %find_lang kodo			--with-kde
 %find_lang kteatime		--with-kde
-#%find_lang kscore		--with-kde
-#%find_lang ktux 		--with-kde
 %find_lang kweather		--with-kde
 %find_lang kworldclock		--with-kde
-
-# propably should be in other packages - kde-i18n to fix:
-#%find_lang kfortune	--with-kde
-#%find_lang kscoreapplet	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -256,50 +238,41 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
 %{_datadir}/apps/amor
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
-%{_applnkdir}/Amusements/amor.desktop
+%{_desktopdir}/amor.desktop
 %{_pixmapsdir}/*/*/*/amor*
 
-#%files fifteen -f kfifteenapplet.lang
 %files fifteen
 %defattr(644,root,root,755)
 %{_libdir}/kde3/fifteen_panelapplet.la
 %attr(0755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
-%files kaphorism -f kaphorism.lang
-%defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/kaphorism
-%{_datadir}/apps/kaphorism
-%{_applnkdir}/Amusements/kaphorism.desktop
-%{_pixmapsdir}/*/*/*/kaphorism*
-
 %files kmoon -f kmoon.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kmoon
 %{_datadir}/apps/kmoon
-%{_applnkdir}/Amusements/kmoon.desktop
+%{_desktopdir}/kmoon.desktop
 %{_pixmapsdir}/*/*/*/kmoon*
 
 %files kodo -f kodo.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kodo
 %{_datadir}/apps/kodo
-%{_applnkdir}/Amusements/kodo.desktop
+%{_desktopdir}/kodo.desktop
 %{_pixmapsdir}/*/*/*/kodo*
 
 %files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kteatime
 %{_datadir}/apps/kteatime
-%{_applnkdir}/Amusements/kteatime.desktop
+%{_desktopdir}/kteatime.desktop
 %{_pixmapsdir}/*/*/*/kteatime*
 
-#%files ktux -f ktux.lang
 %files ktux
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
-%{_applnkdir}/.hidden/ScreenSavers/ktux.desktop
+%{_datadir}/apps/kscreensaver/ktux.desktop
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
@@ -307,7 +280,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/reportview
 %{_libdir}/kde3/weather_panelapplet.la
 %attr(0755,root,root) %{_libdir}/kde3/weather_panelapplet.so
+%{_libdir}/kde3/weather_sidebar.la
+%attr(0755,root,root) %{_libdir}/kde3/weather_sidebar.so*
 %{_datadir}/apps/kicker/applets/kweather.desktop
+%{_datadir}/apps/konqsidebartng/add/weatherbar_add.desktop
+%{_datadir}/apps/konqsidebartng/entries/weatherbar.desktop
 %{_datadir}/services/kweatherservice.desktop
 %{_datadir}/apps/kweather
 
@@ -316,7 +293,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/kworldclock
 %{_datadir}/apps/kworldclock
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
-%{_applnkdir}/Amusements/kworldclock.desktop
+%{_desktopdir}/kworldclock.desktop
 %{_pixmapsdir}/*/*/*/kworldclock*
 
 %files ww
