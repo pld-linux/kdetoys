@@ -1,5 +1,8 @@
 Summary:	Toys for KDE
+Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
+Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
 Summary(pl):	Zabawki dla KDE
+Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	3.0.3
 Release:	2
@@ -10,6 +13,8 @@ Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.
 # generated from kde-i18n
 Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 Patch0:		%{name}-applets-no-version.patch
+Patch1:		%{name}-fix-amor.patch
+Patch2:		%{name}-fix-kmoon-mem-leak.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -27,16 +32,23 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The kdetoys package includes various toys for the K Desktop
-Environment (KDE), including: kmoon, which displays the phases of the
-moon; kworldwatch, which graphically displays the Earth's day and
-night; and kodo, a mouse odometer which shows how far your mouse has
-traveled.
+Environment (KDE), including:
+- kmoon - displays the phases of the moon,
+- kworldwatch - graphically displays the Earth's day and night
+- kodo - a mouse odometer which shows how far your mouse has traveled.
+
+%description -l ja
+KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ÍÑ¤Î¤ª¤â¤Á¤ã °Ê²¼¤Î¤è¤¦¤Ê¥Ñ¥Ã¥±¡¼¥¸¤¬Æþ¤Ã¤Æ¤¤¤Þ¤¹¡£
+
+- kmoon - ·îÎðÉ½¼¨¥Ä¡¼¥ë
+- kworldwatch - À¤³¦»þ·×
+- kodo - ¥Ç¥¹¥¯¥È¥Ã¥×¤ÎÂç¤­¤µ¤òÂ¬¤í¤¦
 
 %description -l pl
-Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym: kmoon
-(wy¶wietlaj±cy fazy ksiê¿yca), kworldwatch (pokazuj±cy graficznie
-dzieñ i noc), oraz kodo (licznik pokazuj±cy jak d³ug± drogê pokona³a
-mysz).
+Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
+- kmoon - wy¶wietlaj±cy fazy ksiê¿yca,
+- kworldwatch - pokazuj±cy graficznie dzieñ i noc,
+- kodo - licznik pokazuj±cy jak d³ug± drogê pokona³a mysz.
 
 %package	amor
 Summary:	Comic figures above your windows
@@ -48,8 +60,8 @@ Requires:	kdelibs = %{version}
 Amusing Misuse Of Resources put's comic figures above your windows.
 
 %description amor -l pl
-Zabawne, acz niew³a¶ciwe wykorzystanie zasobów, aby umie¶ciæ postacie z
-komiksów nad okienkami.
+Zabawne, acz niew³a¶ciwe wykorzystanie zasobów, aby umie¶ciæ postacie
+z komiksów nad okienkami.
 
 %package	fifteen
 Summary:	Order 15 pieces in a 4x4 square by moving them
@@ -109,8 +121,8 @@ Requires:	kdelibs = %{version}
 System tray applet that makes sure your tea doesn't get too strong.
 
 %description kteatime -l pl
-Applet zasobika systemowego, który upewnia siê, ¿e twoja herbata nie stanie siê
-zbyt mocna..
+Applet zasobika systemowego, który upewnia siê, ¿e twoja herbata nie
+stanie siê zbyt mocna..
 
 %package ktux
 Summary:	Tux-in-a-Spaceship screen saver
@@ -145,7 +157,8 @@ Group:		X11/Applications
 Requires:	kdelibs = %{version}
 
 %description kworldclock
-Application and kicker applet showing daylight area on the world globe.
+Application and kicker applet showing daylight area on the world
+globe.
 
 %description kworldclock -l pl
 Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
@@ -165,7 +178,7 @@ Applet World Wide Watch.
 %package devel
 Summary:	Header files for kdetoys
 Summary(pl):	Pliki nag³ówkowe dla kdetoys
-Group:		X11/Developement
+Group:		X11/Development/Libraries
 Requires:	kdelibs = %{version}
 
 %description devel
@@ -177,6 +190,8 @@ Pliki nag³ówkowe dla kdetoys.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
