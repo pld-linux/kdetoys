@@ -9,7 +9,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1.1
+Release:	1.2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -17,7 +17,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.
 # Source0-md5:	2d3a41ece1a87f6cf1bc1cfddae30da1
 # generated from kde-i18n
 Source1:	ftp://blysk.ds.pg.gda.pl/linux/kde-i18n-package/%{version}/kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	b0c000897cb87a6f3cef68046f39975f
+# Source1-md5:	1287faf40d482be0f920ccbf4e41ff9b
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -59,7 +59,7 @@ Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
 Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 8:%{version}
 
 %description amor
 Amusing Misuse Of Resources put's comic figures above your windows.
@@ -84,7 +84,7 @@ Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4.
 Summary:	Displays aphorisms
 Summary(pl):	Wy¶wietlanie aforyzmów
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 8:%{version}
 
 %description kaphorism
 Displays aphorisms.
@@ -96,7 +96,7 @@ Wy¶wietlanie aforyzmów.
 Summary:	System tray applet showing the moon phase
 Summary(pl):	Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 8:%{version}
 
 %description kmoon
 system tray applet showing the moon phase.
@@ -108,7 +108,7 @@ Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
 Summary:	Mouse movement meter
 Summary(pl):	Licznik dystansu pokonanego przez mysz
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 8:%{version}
 
 %description kodo
 Mouse movement meter.
@@ -120,7 +120,7 @@ Licznik dystansu pokonanego przez mysz.
 Summary:	System tray applet that makes sure your tea doesn't get too strong
 Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 8:%{version}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
@@ -133,7 +133,7 @@ stanie siê zbyt mocna.
 Summary:	Tux-in-a-Spaceship screen saver
 Summary(pl):	Wygaszacz ekranu Tux-w-statku-kosmicznym
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 8:%{version}
 
 %description ktux
 Tux-in-a-Spaceship screen saver.
@@ -160,7 +160,7 @@ Applet kickera wy¶wietlaj±cy pogodê na zewn±trz.
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 8:%{version}
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
@@ -186,7 +186,7 @@ Applet World Wide Watch.
 Summary:	Header files for kdetoys
 Summary(pl):	Pliki nag³ówkowe dla kdetoys
 Group:		X11/Development/Libraries
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 8:%{version}
 
 %description devel
 Header files for kdetoys.
@@ -223,11 +223,12 @@ done
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_applnkdir}/{Toys,Amusements}
 
-#bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
 %find_lang amor			--with-kde
 %find_lang kaphorism		--with-kde
