@@ -9,7 +9,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	2.2
+Release:	3
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -26,8 +26,8 @@ BuildRequires:	kdelibs-devel >= %{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
-BuildRequires:	zlib-devel
 BuildRequires:	perl
+BuildRequires:	zlib-devel
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -219,31 +219,31 @@ done
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 ALD=$RPM_BUILD_ROOT%{_applnkdir}
 mv $ALD/{Toys,Amusements}
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
+%find_lang ktux 		--with-kde
+%find_lang kscoreapplet		--with-kde
+cat kscoreapplet.lang >> ktux.lang  # CHECK
+
 %find_lang desktop_kdetoys      --with-kde
 %find_lang amor			--with-kde
+cat desktop_kdetoys.lang >> amor.lang # CHECK
+
 %find_lang kaphorism		--with-kde
 %find_lang kmoon		--with-kde
 %find_lang kodo			--with-kde
 %find_lang kteatime		--with-kde
 %find_lang kfifteenapplet       --with-kde
-%find_lang ktux 		--with-kde
-%find_lang kscoreapplet		--with-kde
-cat kscoreapplet.lang >> ktux.lang  # CHECK
 %find_lang kweather		--with-kde
 %find_lang kworldclock		--with-kde
-
 # propably should be in other packages - kde-i18n to fix:
 #%%find_lang kfortune	--with-kde
-
-cat desktop_kdetoys.lang >> amor.lang # CHECK
 
 %clean
 rm -rf $RPM_BUILD_ROOT
