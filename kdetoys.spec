@@ -9,7 +9,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	%{_ver}
-Release:	0.3
+Release:	0.4
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -18,6 +18,8 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.
 # generated from kde-i18n
 Source1:	ftp://blysk.ds.pg.gda.pl/linux/kde-i18n-package/%{version}/kde-i18n-%{name}-%{version}.tar.bz2
 # Source1-md5:	0a4143c50c420724165373f911b69860
+Source2:	%{name}-extra_icons.tar.bz2
+# Source2-md5:	c6274c6ec1144003dad2c9c2e96f99fb
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -229,6 +231,11 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
 mv $RPM_BUILD_ROOT%{_applnkdir}/{Toys,Amusements}
 
+bzip2 -dc %{SOURCE2} | tar xf - -C $RPM_BUILD_ROOT%{_pixmapsdir}
+for i in {kaphorism,kmoon,kodo,kworldclock}.png; do
+	ln -s crystalsvg/48x48/apps/$i $RPM_BUILD_ROOT%{_pixmapsdir}/$i
+done
+
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
 %find_lang	amor		--with-kde
@@ -264,7 +271,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/amor
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
 %{_applnkdir}/Amusements/amor.desktop
-%{_pixmapsdir}/*/*/*/amor*
+%{_pixmapsdir}/*/*/*/amor.png
+%{_pixmapsdir}/amor.png
 %{_mandir}/man1/amor.*
 
 %files fifteen -f kfifteenapplet.lang
@@ -278,7 +286,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/kaphorism
 %{_datadir}/apps/kaphorism
 %{_applnkdir}/Amusements/kaphorism.desktop
-%{_pixmapsdir}/*/*/*/kaphorism*
+%{_pixmapsdir}/*/*/*/kaphorism.png
+%{_pixmapsdir}/kaphorism.png
 %{_mandir}/man1/kaphorism.*
 
 %files kmoon -f kmoon.lang
@@ -286,7 +295,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/kmoon
 %{_datadir}/apps/kmoon
 %{_applnkdir}/Amusements/kmoon.desktop
-%{_pixmapsdir}/*/*/*/kmoon*
+%{_pixmapsdir}/*/*/*/kmoon.png
+%{_pixmapsdir}/kmoon.png
 %{_mandir}/man1/kmoon.*
 
 %files kodo -f kodo.lang
@@ -294,7 +304,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/kodo
 %{_datadir}/apps/kodo
 %{_applnkdir}/Amusements/kodo.desktop
-%{_pixmapsdir}/*/*/*/kodo*
+%{_pixmapsdir}/*/*/*/kodo.png
+%{_pixmapsdir}/kodo.png
 %{_mandir}/man1/kodo.*
 
 %files kteatime -f kteatime.lang
@@ -302,7 +313,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/kteatime
 %{_datadir}/apps/kteatime
 %{_applnkdir}/Amusements/kteatime.desktop
-%{_pixmapsdir}/*/*/*/kteatime*
+%{_pixmapsdir}/*/*/*/kteatime.png
+%{_pixmapsdir}/kteatime.png
 %{_mandir}/man1/kteatime.*
 
 %files ktux -f ktux.lang
@@ -330,7 +342,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kworldclock
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
 %{_applnkdir}/Amusements/kworldclock.desktop
-%{_pixmapsdir}/*/*/*/kworldclock*
+%{_pixmapsdir}/*/*/*/kworldclock.png
+%{_pixmapsdir}/kworldclock.png
 %{_mandir}/man1/kworldclock.*
 
 %files ww
