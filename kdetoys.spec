@@ -1,9 +1,9 @@
 
 %define		_state		stable
-%define		_ver		3.3.1
+%define		_ver		3.3.2
 
-%define		_minlibsevr	9:3.3.1
-%define		_minbaseevr	9:3.3.1
+%define		_minlibsevr	9:3.3.2
+%define		_minbaseevr	9:3.3.2
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -12,16 +12,15 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	3
+Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Icon:		kde-toys.xpm
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	ef76385dd7856ef964102fddf1936450
-# Source0-size:	2762461
+# Source0-md5:	5d911f7f0034e71beb087fac3e8e68af
 #Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{version}-%{_snap}.tar.bz2
-Patch100:	%{name}-branch.diff
+#Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
 BuildRequires:	autoconf
@@ -209,10 +208,9 @@ globe.
 %description kworldclock -l pl
 Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 
-
 %prep
 %setup -q
-%patch100 -p1
+#%%patch100 -p1
 %patch0 -p1
 
 echo "KDE_OPTIONS = nofinal" >> kmoon/Makefile.am
