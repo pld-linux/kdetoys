@@ -1,7 +1,7 @@
 
 %define         _state          snapshots                                        
 %define         _ver		3.2
-%define         _snap		030509
+%define         _snap		030511
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
