@@ -1,4 +1,4 @@
-%define		_ver		3.0
+%define		_ver		3.0.1
 #define		_sub_ver
 %define		_rel		1
 
@@ -14,12 +14,9 @@ Summary(pl):	Zabawki dla KDE
 Name:		kdetoys
 Version:	%{_version}
 Release:	%{_release}
-Epoch:		7
+Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
-Group(de):	X11/Applikationen/Grafik
-Group(pl):	X11/Aplikacje/Grafika
-Group(pt):	X11/Aplicações/Gráficos
 Source0:	ftp://ftp.kde.org/pub/kde/%{_ftpdir}/%{version}/src/%{name}-%{version}.tar.bz2
 Icon:		kde-icon.xpm
 BuildRequires:	kdelibs-devel = %{version}
