@@ -1,6 +1,6 @@
 
 %define         _state          stable                                        
-%define         _ver		3.1
+%define         _ver		3.1.1
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -9,7 +9,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE嚔赤殻會
 Name:		kdetoys
 Version:	%{_ver}
-Release:	4
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
