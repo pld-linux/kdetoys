@@ -1,10 +1,9 @@
 
-%define		_state		snapshots
-%define		_ver		3.2.91	
-%define		_snap		040704
+%define		_state		unstable
+%define		_ver		3.3.92
 
-%define		_minlibsevr	9:3.2.91.040629
-%define		_minbaseevr	9:3.2.91.040629
+%define		_minlibsevr	9:3.3.92
+%define		_minbaseevr	9:3.3.92
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -12,15 +11,19 @@ Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
-Version:	%{_ver}.%{_snap}
+Version:	%{_ver}
 Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	53cf71381e8bba1b543d3540253840a5
+#Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{version}-%{_snap}.tar.bz2
+#Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
-BuildRequires:	ed
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	kdebase-devel >= %{_minbaseevr}
 BuildRequires:	libjpeg-devel
@@ -29,7 +32,7 @@ BuildRequires:	libtiff-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	unsermake >= 040511
 BuildRequires:	zlib-devel
-Obsoletes:	amor
+BuildConflicts:	kdetoys-ww
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -71,11 +74,27 @@ Group:		X11/Applications
 Requires:	kdebase-core >= %{_minbaseevr}
 
 %description amor
-Amusing Misuse Of Resources put's comic figures above your windows.
+AMOR is an acronym which stands for Amusing Misuse of Resources. It is
+actually an animation which sits on top of your active window. In its
+default configuration, AMOR takes the form of a yellow spot which
+performs many tricks. AMOR also has many different themes which change
+the appearance and behavior of the animation.
+
+Since AMOR works with the KDE window manager KWin, the application
+will only work from within KDE. It is possible that AMOR would work
+from within another KDE-compliant window manager, but has not been
+tested.
 
 %description amor -l pl
-Zabawne, acz niew³a¶ciwe wykorzystanie zasobów, aby umie¶ciæ postacie
-z komiksów nad okienkami.
+AMOR to skrót od Amusing Misuse of Resources, czyli zabawne, acz
+niew³a¶ciwe wykorzystanie zasobów. Jest to animacja umieszczona nad
+aktywnym okienkiem. W domy¶lnej konfiguracji AMOR przyjmuje postaæ
+¿ó³tej plamki wykonuj±cej ró¿ne tricki. AMOR ma tak¿e wiele ró¿nych
+motywów zmieniaj±cych wygl±d i zachowanie animacji.
+
+Poniewa¿ AMOR dzia³a z zarz±dc± okien KDE, bêdzie dzia³aæ tylko w KDE.
+Mo¿liwe, ¿e AMOR dzia³a z niektórymi innymi zarz±dcami okien zgodnymi
+z KDE, ale nie by³o to testowane.
 
 %package eyes
 Summary:	An xeyes KDE clone
@@ -97,7 +116,8 @@ Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description fifteen
-Game: Order 15 pieces in a 4x4 square by moving them.
+A game which goal is to order 15 pieces in a 4x4 square by moving
+them.
 
 %description fifteen -l pl
 Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu
@@ -110,7 +130,7 @@ Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description kmoon
-system tray applet showing the moon phase.
+System tray applet showing the current moon phase.
 
 %description kmoon -l pl
 Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
@@ -122,7 +142,7 @@ Group:		X11/Applications
 Requires:	kdebase-core >= %{_minbaseevr}
 
 %description kodo
-Mouse movement meter.
+Mouse movement and mileage meter.
 
 %description kodo -l pl
 Licznik dystansu pokonanego przez mysz.
@@ -131,7 +151,7 @@ Licznik dystansu pokonanego przez mysz.
 Summary:	System tray applet that makes sure your tea doesn't get too strong
 Summary(pl):	Aplet zasobnika systemowego przypominaj±cy o herbacie
 Group:		X11/Applications
-Requires:	kdebase-kicker >= %{_minbaseevr}
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
@@ -154,22 +174,31 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 
 %package kweather
 Summary:	Kicker applet that will display the current weather outside
-Summary(pl):	Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz
+Summary(pl):	Aplet kickera wy¶wietlaj±cy aktualn± pogodê na zewn±trz
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys
 
 %description kweather
-Kicker applet that will display the current weather outside.
+kweather is an application that provides both a panel icon, allowing
+you to watch the weather as reported by a local weather station, and
+providing a weather service that can track multiple weather stations
+and provide this information to other applications including
+Konqueror's sidebar and Kontact's summary page.
 
 %description kweather -l pl
-Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz.
+kweather to aplikacja dostarczaj±ca ikonê panelu, umo¿liwiaj±c±
+ogl±danie pogody og³aszanej przez lokaln± stacjê oraz dostarczaj±c±
+serwis pogodowy potrafi±cy ¶ledziæ wiele stacji pogodowych, a tak¿e
+dostarczaj±ca te informacje dla innych aplikacji, w³±cznie z paskiem
+Konquerora oraz stron± podsumowuj±c± Kontacta.
 
 %package kworldclock
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
+Obsoletes:	kdetoys-ww
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
@@ -178,28 +207,30 @@ globe.
 %description kworldclock -l pl
 Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 
-%package ww
-Summary:	World Wide Watch applet
-Summary(pl):	Aplet World Wide Watch
-Group:		X11/Applications
-Requires:	kdebase-desktop >= %{_minbaseevr}
-
-%description ww
-World Wide Watch applet.
-
-%description ww -l pl
-Aplet World Wide Watch.
-
 %prep
-%setup -q -n %{name}-%{_snap}
+%setup -q
+#%%patch100 -p1
 %patch0 -p1
 
 echo "KDE_OPTIONS = nofinal" >> kmoon/Makefile.am
 
-%build
-cp /usr/share/automake/config.sub admin
+%{__sed} -i -e 's/Terminal=0/Terminal=false/' \
+	amor/amor.desktop \
+	kodo/kodo.desktop \
+	kteatime/kteatime.desktop
+for f in `find . -name \*.desktop`; do
+	if grep -q '^Categories=.*[^;]$' $f; then
+		sed -i -e 's/\(^Categories=.*$\)/\1;/' $f
+	fi
+	if grep -q '\[ven\]' $f; then
+		sed -i -e 's/\[ven\]/[ve]/' $f
+	fi
+done
 
-export UNSERMAKE=/usr/share/unsermake/unsermake
+%build
+cp %{_datadir}/automake/config.sub admin
+
+export UNSERMAKE=%{_datadir}/unsermake/unsermake
 
 %{__make} -f admin/Makefile.common cvs
 
@@ -207,14 +238,20 @@ export UNSERMAKE=/usr/share/unsermake/unsermake
 	--disable-rpath \
 	--enable-final \
 	--with-qt-libraries=%{_libdir} \
+%if "%{_lib}" == "lib64"
+	--enable-libsuffix=64 \
+%endif
+	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full}
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+rm -rf *.lang
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
+	kde_libs_htmldir=%{_kdedocdir} \
 	kde_htmldir=%{_kdedocdir}
 
 # Debian manpages
@@ -262,7 +299,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kicker/applets/kmoonapplet.desktop
 %{_datadir}/apps/kmoon
 %{_iconsdir}/*/*/*/kmoon*
-%{_mandir}/man1/kmoon.1*
+#%{_mandir}/man1/kmoon.1*
 
 %files kodo -f kodo.lang
 %defattr(644,root,root,755)
@@ -319,9 +356,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kworldclock.desktop
 %{_iconsdir}/*/*/*/kworldclock*
 %{_mandir}/man1/kworldclock.1*
-
-%files ww
-%defattr(644,root,root,755)
 %{_libdir}/kde3/ww_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/ww_panelapplet.so
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
