@@ -2,6 +2,7 @@
 # Conditional build:
 # _with_pixmapsubdirs - leave different depth/resolution icons
 #
+%define		_with_pixmapsubdirs	1
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
 Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
@@ -9,7 +10,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	3.0.4
-Release:	3
+Release:	4
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
