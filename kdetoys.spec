@@ -12,7 +12,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	2
+Release:	3
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -224,6 +224,9 @@ echo "KDE_OPTIONS = nofinal" >> kmoon/Makefile.am
 for f in `find . -name \*.desktop`; do
 	if grep -q '^Categories=.*[^;]$' $f; then
 		sed -i -e 's/\(^Categories=.*$\)/\1;/' $f
+	fi
+	if grep -q '\[ven\]' $f; then
+		sed -i -e 's/\[ven\]/[ve]/' $f
 	fi
 done
 
