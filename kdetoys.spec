@@ -8,7 +8,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	%{_ver}
-Release:	3
+Release:	4
 Epoch:		9
 License:	GPL
 Group:		X11/Amusements
@@ -218,6 +218,10 @@ Aplet World Wide Watch.
 %prep
 %setup -q
 %patch0 -p1
+
+for f in `find . -name *.desktop | xargs grep -l '^Terminal=0'`; do
+	%{__sed} -i -e 's/^Terminal=0/Terminal=false/' $f
+done
 
 %build
 cp -f %{_datadir}/automake/config.sub admin
