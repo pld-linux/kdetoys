@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
-%define		_ver		3.1.93
-%define		_snap		031114
+%define		_ver		3.1.94
+%define		_snap		031204
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -16,7 +16,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	d7545862bd6079f25582873280994f42
+# Source0-md5:	6493f65454ca37b8d7ac8dd218ebef59
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -191,7 +191,7 @@ Applet World Wide Watch.
 
 %prep
 %setup -q -n %{name}-%{_snap}
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p1
 
 %build
