@@ -13,7 +13,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1
+Release:	2
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -346,6 +346,10 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
+# Debian manpages
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
+install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
+
 %if %{with i18n}
 if [ -f "%{SOURCE1}" ] ; then
 	bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
@@ -413,6 +417,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/amor
 %{_desktopdir}/kde/amor.desktop
 %{_iconsdir}/*/*/*/amor*
+%{_mandir}/man1/amor.1*
 
 %files eyes
 %defattr(644,root,root,755)
@@ -432,6 +437,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmoon
 %{_desktopdir}/kde/kmoon.desktop
 %{_iconsdir}/*/*/*/kmoon*
+%{_mandir}/man1/kmoon.1*
 
 %files kodo -f kodo_en.lang
 %defattr(644,root,root,755)
@@ -439,6 +445,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kodo
 %{_desktopdir}/kde/kodo.desktop
 %{_iconsdir}/*/*/*/kodo*
+%{_mandir}/man1/kodo.1*
 
 %files kteatime -f kteatime_en.lang
 %defattr(644,root,root,755)
@@ -446,12 +453,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kteatime
 %{_desktopdir}/kde/kteatime.desktop
 %{_iconsdir}/*/*/*/kteatime*
+%{_mandir}/man1/kteatime.1*
 
 %files ktux
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
 %{_datadir}/apps/kscreensaver/ktux.desktop
+%{_mandir}/man1/ktux.1*
 
 %files kweather -f kweather_en.lang
 %defattr(644,root,root,755)
@@ -474,6 +483,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/kweatherservice.desktop
 %{_datadir}/apps/kweather
 %{_iconsdir}/*/*/apps/kweather.png
+%{_mandir}/man1/kweatherreport.1*
+%{_mandir}/man1/kweatherservice.1*
 
 %files kworldclock -f kworldclock_en.lang
 %defattr(644,root,root,755)
@@ -482,6 +493,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
 %{_desktopdir}/kde/kworldclock.desktop
 %{_iconsdir}/*/*/*/kworldclock*
+%{_mandir}/man1/kworldclock.1*
 
 %files ww
 %defattr(644,root,root,755)
