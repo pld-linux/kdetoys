@@ -1,6 +1,3 @@
-#
-# Conditional build:
-%bcond_with i18n	# w/wo 18n subpackages
 
 %define		_state		snapshots
 %define		_ver		3.2.0	
@@ -24,8 +21,6 @@ Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://ep09.pld-linux.org/~%{_packager}/kde/%{name}-%{_snap}.tar.bz2
 ##%% Source0-md5:	7e0eb4a763e2b8526fa7991642be6dff
-#Source1:	http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
-##%% Source1-md5:	fa44500a6aa6417b45433ef54ac0fd64
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
 BuildRequires:	ed
@@ -197,131 +192,6 @@ World Wide Watch applet.
 %description ww -l pl
 Aplet World Wide Watch.
 
-%package i18n
-Summary:	Common internationalization and localization files for kdetoys
-Summary(pl):	Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdetoys
-Group:		X11/Applications
-Requires:	kdelibs-i18n >= 9:%{version}
-
-%description i18n
-Common internationalization and localization files for kdetoys.
-
-%description i18n -l pl
-Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdetoys.
-
-%package amor-i18n
-Summary:	Internationalization and localization files for amor
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla amora
-Group:		X11/Applications
-Requires:	%{name}-amor = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description amor-i18n
-Internationalization and localization files for amor.
-
-%description amor-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla amora.
-
-%package kmoon-i18n
-Summary:	Internationalization and localization files for kmoon
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kmoon
-Group:		X11/Applications
-Requires:	%{name}-kmoon = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
-Requires:	kdebase-kicker-i18n >= 9:%{version}
-
-%description kmoon-i18n
-Internationalization and localization files for kmoon.
-
-%description kmoon-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kmoon.
-
-%package kodo-i18n
-Summary:	Internationalization and localization files for kodo
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kodo
-Group:		X11/Applications
-Requires:	%{name}-kodo = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kodo-i18n
-Internationalization and localization files for kodo.
-
-%description kodo-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kodo.
-
-%package kteatime-i18n
-Summary:	Internationalization and localization files for kteatime
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kteatime
-Group:		X11/Applications
-Requires:	%{name}-kteatime = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
-Requires:	kdebase-kicker-i18n >= 9:%{version}
-
-%description kteatime-i18n
-Internationalization and localization files for kteatime.
-
-%description kteatime-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kteatime.
-
-%package kweather-i18n
-Summary:	Internationalization and localization files for kweather
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kweather
-Group:		X11/Applications
-Requires:	%{name}-kweather = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
-Requires:	kdebase-kicker-i18n >= 9:%{version}
-
-%description kweather-i18n
-Internationalization and localization files for kweather.
-
-%description kweather-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kweather.
-
-%package kworldclock-i18n
-Summary:	Internationalization and localization files for kworldclock
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kworldclocka
-Group:		X11/Applications
-Requires:	%{name}-kworldclock = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
-Requires:	kdebase-kicker-i18n >= 9:%{version}
-Requires:	konqueror-i18n >= 9:%{version}
-
-%description kworldclock-i18n
-Internationalization and localization files for kworldclock.
-
-%description kworldclock-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kworldclocka.
-
-%package ktux-i18n
-Summary:	Internationalization and localization files for ktux
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla ktuksa
-Group:		X11/Applications
-Requires:	%{name}-ktux = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
-Requires:	kdebase-screensavers-i18n >= 9:%{version}
-
-%description ktux-i18n
-Internationalization and localization files for ktux.
-
-%description ktux-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla ktuksa.
-
-%package fifteen-i18n
-Summary:	Internationalization and localization files for fifteen
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla fifteen
-Group:		X11/Applications
-Requires:	%{name}-fifteen = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
-Requires:	kdebase-kicker-i18n >= 9:%{version}
-
-%description fifteen-i18n
-Internationalization and localization files for fifteen.
-
-%description fifteen-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla fifteen.
-
 %prep
 %setup -q -n %{name}-%{_snap}
 %patch0 -p1
@@ -358,32 +228,12 @@ cd -
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-%if %{with i18n}
-if [ -f "%{SOURCE1}" ] ; then
-	bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
-	for f in $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/*.mo; do
-		if [ "`file $f | sed -e 's/.*,//' -e 's/message.*//'`" -le 1 ] ; then
-			rm -f $f
-		fi
-	done
-else
-	echo "No i18n sources found and building --with i18n. FIXIT!"
-	exit 1
-fi
-%endif
-
 %find_lang amor		--with-kde
 %find_lang kmoon	--with-kde
 %find_lang kodo		--with-kde
 %find_lang kteatime	--with-kde
 %find_lang kweather	--with-kde
 %find_lang kworldclock	--with-kde
-
-%if %{with i18n}
-%find_lang kfifteenapplet	--with-kde
-%find_lang ktux			--with-kde
-%find_lang desktop_kdetoys	--with-kde
-%endif
 
 files="\
 	amor \
@@ -413,18 +263,6 @@ done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%if %{with i18n}
-%files i18n -f desktop_kdetoys.lang
-%files amor-i18n -f amor.lang
-%files kmoon-i18n -f kmoon.lang
-%files kodo-i18n -f kodo.lang
-%files kteatime-i18n -f kteatime.lang
-%files kweather-i18n -f kweather.lang
-%files kworldclock-i18n -f kworldclock.lang
-%files fifteen-i18n -f kfifteenapplet.lang
-%files ktux-i18n -f ktux.lang
-%endif
 
 %files devel
 %defattr(644,root,root,755)
