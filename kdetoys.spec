@@ -1,7 +1,7 @@
 
 %define         _state          snapshots
-%define         _ver		3.1.92
-%define         _snap		031024
+%define         _ver		3.1.93
+%define         _snap		031105
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -16,7 +16,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	bc8b614df1151df3469acbb794cd9c11
+# Source0-md5:	7803ea9346afcbe0186977bf5a9c6000
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -25,12 +25,11 @@ BuildRequires:	kdebase-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		no_install_post_chrpath		1
 
 %description
 The kdetoys package includes various toys for the K Desktop
@@ -56,7 +55,7 @@ Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
 Summary:	Header files for kdetoys
 Summary(pl):	Pliki nag³ówkowe dla kdetoys
 Group:		X11/Development/Libraries
-Requires:	kdelibs >= 9:%{version}
+Requires:	kdelibs-devel >= 9:%{version}
 
 %description devel
 Header files for kdetoys.
@@ -64,7 +63,7 @@ Header files for kdetoys.
 %description devel -l pl
 Pliki nag³ówkowe dla kdetoys.
 
-%package	amor
+%package amor
 Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
@@ -77,7 +76,7 @@ Amusing Misuse Of Resources put's comic figures above your windows.
 Zabawne, acz niew³a¶ciwe wykorzystanie zasobów, aby umie¶ciæ postacie
 z komiksów nad okienkami.
 
-%package	fifteen
+%package fifteen
 Summary:	Order 15 pieces in a 4x4 square by moving them
 Summary(pl):	Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4
 Group:		X11/Applications
@@ -191,7 +190,9 @@ done
 
 %{__make} -f admin/Makefile.common cvs
 
-%configure --enable-final
+%configure \
+	--disable-rpath \
+	--enable-final
 
 %{__make}
 
@@ -200,7 +201,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_docdir}/kde/HTML
+	kde_htmldir=%{_kdedocdir}
 
 %find_lang amor			--with-kde
 %find_lang kmoon		--with-kde
