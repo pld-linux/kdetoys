@@ -19,7 +19,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Icon:		kde-toys.xpm
 # Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_ver}-%{_snap}.tar.bz2
+Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{version}-%{_snap}.tar.bz2
 # Source0-md5:	803d3441bb1452b915ea36942362e405
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
@@ -33,6 +33,7 @@ BuildRequires:	libtiff-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	unsermake >= 040511
 BuildRequires:	zlib-devel
+BuildConflicts:	kdetoys-ww
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -116,7 +117,8 @@ Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description fifteen
-Game: Order 15 pieces in a 4x4 square by moving them.
+A game which goal is to order 15 pieces in a 4x4 square by moving
+them.
 
 %description fifteen -l pl
 Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu
@@ -197,6 +199,7 @@ Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
+Obsoletes:	kdetoys-ww
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
@@ -205,17 +208,6 @@ globe.
 %description kworldclock -l pl
 Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 
-%package ww
-Summary:	World Wide Watch applet
-Summary(pl):	Aplet World Wide Watch
-Group:		X11/Applications
-Requires:	kdebase-desktop >= %{_minbaseevr}
-
-%description ww
-World Wide Watch applet.
-
-%description ww -l pl
-Aplet World Wide Watch.
 
 %prep
 %setup -q
@@ -224,9 +216,9 @@ Aplet World Wide Watch.
 echo "KDE_OPTIONS = nofinal" >> kmoon/Makefile.am
 
 %build
-cp /usr/share/automake/config.sub admin
+cp %{_datadir}/automake/config.sub admin
 
-export UNSERMAKE=/usr/share/unsermake/unsermake
+export UNSERMAKE=%{_datadir}/unsermake/unsermake
 
 %{__make} -f admin/Makefile.common cvs
 
@@ -238,7 +230,8 @@ export UNSERMAKE=/usr/share/unsermake/unsermake
 %{__make}
 
 %install
-rm -rf $RPM_BUILD_ROOT *.lang
+rm -rf $RPM_BUILD_ROOT
+rm -rf *.lang
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -353,9 +346,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/*/kworldclock*
 %{_mandir}/man1/kworldclock.1*
 %{_kdedocdir}/en/kworldclock
-
-%files ww
-%defattr(644,root,root,755)
 %{_libdir}/kde3/ww_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/ww_panelapplet.so
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
