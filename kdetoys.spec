@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.2.0	
-%define		_snap		040225
+%define		_snap		040407
 #
 # Conditional build:
 %bcond_with i18n	# w/wo 18n subpackages
@@ -18,12 +18,11 @@ Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	http://ep09.pld-linux.org/~adgor/kde/%{name}.tar.bz2
-##%% Source0-md5:	b9fdd2b51a25501322e3dd3301760a41
+Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{_snap}.tar.bz2
+# Source0-md5:	7e0eb4a763e2b8526fa7991642be6dff
 #Source1:	http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
 ##%% Source1-md5:	fa44500a6aa6417b45433ef54ac0fd64
 Patch0:		%{name}-screensavers.patch
-Icon:		kde-icon.xpm
 URL:		http://www.kde.org/
 BuildRequires:	ed
 BuildRequires:	gettext-devel
