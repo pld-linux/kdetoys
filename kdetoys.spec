@@ -1,6 +1,7 @@
 
-%define         _state          stable                                        
-%define         _ver		3.1.1
+%define         _state          snapshots
+%define         _ver		3.1.90
+%define         _snap		030726
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -8,18 +9,19 @@ Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
-Version:	%{_ver}
+Version:	%{_ver}.%{_snap}
 Release:	1
-Epoch:		8
+Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# generated from kde-i18n
-#Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
+# Source0-md5:	98831f9a9c323a9d2629a789ba43246c
 Patch0:		%{name}-fix-amor.patch
+Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel = %{version}
+BuildRequires:	kdebase-devel >= %{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
@@ -28,7 +30,8 @@ BuildRequires:	zlib-devel
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_htmldir	/usr/share/doc/kde/HTML
+%define		_htmldir	%{_docdir}/kde/HTML
+%define		_icondir	%{_datadir}/icons
 
 %define		no_install_post_chrpath		1
 
@@ -52,132 +55,6 @@ Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
 - kworldwatch - pokazuj±cy graficznie dzieñ i noc,
 - kodo - licznik pokazuj±cy jak d³ug± drogê pokona³a mysz.
 
-%package	amor
-Summary:	Comic figures above your windows
-Summary(pl):	Postacie z komiksów nad okienkami
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description amor
-Amusing Misuse Of Resources put's comic figures above your windows.
-
-%description amor -l pl
-Zabawne, acz niew³a¶ciwe wykorzystanie zasobów, aby umie¶ciæ postacie
-z komiksów nad okienkami.
-
-%package	fifteen
-Summary:	Order 15 pieces in a 4x4 square by moving them
-Summary(pl):	Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description fifteen
-Order 15 pieces in a 4x4 square by moving them.
-
-%description fifteen -l pl
-Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4.
-
-%package kaphorism
-Summary:	Displays aphorisms
-Summary(pl):	Wy¶wietlanie aforyzmów
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description kaphorism
-Displays aphorisms.
-
-%description kaphorism -l pl
-Wy¶wietlanie aforyzmów.
-
-%package kmoon
-Summary:	System tray applet showing the moon phase
-Summary(pl):	Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description kmoon
-system tray applet showing the moon phase.
-
-%description kmoon -l pl
-Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
-
-%package kodo
-Summary:	Mouse movement meter
-Summary(pl):	Licznik dystansu pokonanego przez mysz
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description kodo
-Mouse movement meter.
-
-%description kodo -l pl
-Licznik dystansu pokonanego przez mysz.
-
-%package kteatime
-Summary:	System tray applet that makes sure your tea doesn't get too strong
-Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description kteatime
-System tray applet that makes sure your tea doesn't get too strong.
-
-%description kteatime -l pl
-Applet zasobika systemowego, który upewnia siê, ¿e twoja herbata nie
-stanie siê zbyt mocna.
-
-%package ktux
-Summary:	Tux-in-a-Spaceship screen saver
-Summary(pl):	Wygaszacz ekranu Tux-w-statku-kosmicznym
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description ktux
-Tux-in-a-Spaceship screen saver.
-
-%description ktux -l pl
-Wygaszacz ekranu Tux-w-statku-kosmicznym.
-
-%package	kweather
-Summary:	Kicker applet that will display the current weather outside
-Summary(pl):	Applet kickera wy¶wietlaj±cy pogodê na zewn±trz
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-Provides:	kweather
-Obsoletes:	kweather
-Obsoletes:	kdetoys
-
-%description kweather
-Kicker applet that will display the current weather outside.
-
-%description kweather -l pl
-Applet kickera wy¶wietlaj±cy pogodê na zewn±trz.
-
-%package kworldclock
-Summary:	Daylight area on the world globe
-Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description kworldclock
-Application and kicker applet showing daylight area on the world
-globe.
-
-%description kworldclock -l pl
-Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
-
-%package	ww
-Summary:	World Wide Watch applet
-Summary(pl):	Applet World Wide Watch
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description ww
-World Wide Watch applet.
-
-%description ww -l pl
-Applet World Wide Watch.
-
 %package devel
 Summary:	Header files for kdetoys
 Summary(pl):	Pliki nag³ówkowe dla kdetoys
@@ -190,57 +67,150 @@ Header files for kdetoys.
 %description devel -l pl
 Pliki nag³ówkowe dla kdetoys.
 
+%package	amor
+Summary:	Comic figures above your windows
+Summary(pl):	Postacie z komiksów nad okienkami
+Group:		X11/Applications
+Requires:	kdebase-kicker >= %{version}
+
+%description amor
+Amusing Misuse Of Resources put's comic figures above your windows.
+
+%description amor -l pl
+Zabawne, acz niew³a¶ciwe wykorzystanie zasobów, aby umie¶ciæ postacie
+z komiksów nad okienkami.
+
+%package	fifteen
+Summary:	Order 15 pieces in a 4x4 square by moving them
+Summary(pl):	Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4
+Group:		X11/Applications
+Requires:	kdebase-kicker >= %{version}
+
+%description fifteen
+Order 15 pieces in a 4x4 square by moving them.
+
+%description fifteen -l pl
+Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4.
+
+%package kmoon
+Summary:	System tray applet showing the moon phase
+Summary(pl):	Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
+Group:		X11/Applications
+Requires:	kdebase-kicker >= %{version}
+
+%description kmoon
+system tray applet showing the moon phase.
+
+%description kmoon -l pl
+Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
+
+%package kodo
+Summary:	Mouse movement meter
+Summary(pl):	Licznik dystansu pokonanego przez mysz
+Group:		X11/Applications
+Requires:	kdebase-core >= %{version}
+
+%description kodo
+Mouse movement meter.
+
+%description kodo -l pl
+Licznik dystansu pokonanego przez mysz.
+
+%package kteatime
+Summary:	System tray applet that makes sure your tea doesn't get too strong
+Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie
+Group:		X11/Applications
+Requires:	kdebase-kicker >= %{version}
+
+%description kteatime
+System tray applet that makes sure your tea doesn't get too strong.
+
+%description kteatime -l pl
+Applet zasobika systemowego, który upewnia siê, ¿e twoja herbata nie
+stanie siê zbyt mocna.
+
+%package ktux
+Summary:	Tux-in-a-Spaceship screen saver
+Summary(pl):	Wygaszacz ekranu Tux-w-statku-kosmicznym
+Group:		X11/Applications
+Requires:	kdebase-screensavers >= %{version}
+
+%description ktux
+Tux-in-a-Spaceship screen saver.
+
+%description ktux -l pl
+Wygaszacz ekranu Tux-w-statku-kosmicznym.
+
+%package	kweather
+Summary:	Kicker applet that will display the current weather outside
+Summary(pl):	Applet kickera wy¶wietlaj±cy pogodê na zewn±trz
+Group:		X11/Applications
+Requires:	konqueror >= %{version}
+Obsoletes:	kdetoys
+
+%description kweather
+Kicker applet that will display the current weather outside.
+
+%description kweather -l pl
+Applet kickera wy¶wietlaj±cy pogodê na zewn±trz.
+
+%package kworldclock
+Summary:	Daylight area on the world globe
+Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
+Group:		X11/Applications
+Requires:	kdebase-kicker >= %{version}
+Requires:	konqueror >= %{version}
+
+%description kworldclock
+Application and kicker applet showing daylight area on the world
+globe.
+
+%description kworldclock -l pl
+Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
+
+%package	ww
+Summary:	World Wide Watch applet
+Summary(pl):	Applet World Wide Watch
+Group:		X11/Applications
+Requires:	kdebase-kicker >= %{version}
+
+%description ww
+World Wide Watch applet.
+
+%description ww -l pl
+Applet World Wide Watch.
+
+
 %prep
-%setup -q
+%setup -q -n %{name}-%{_snap}
 %patch0 -p1
+%patch1 -p1
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
-
-CFLAGS="%{rpmcflags}"
-CXXFLAGS="%{rpmcflags}"
 
 for plik in `find ./ -name *.desktop` ; do
-	if [ -d $plik ]; then
 	echo $plik
-	sed -ie 's/\[nb\]/\[no\]/g' $plik
-	fi
+	sed -i -e "s/\[nb\]/\[no\]/g" $plik
 done
 
-%configure \
-	--enable-final \
-	--%{?debug:en}%{!?debug:dis}able-debug
+%configure
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
-
-ALD=$RPM_BUILD_ROOT%{_applnkdir}
-install -d $ALD/.hidden
-mv $ALD/{System/ScreenSavers,.hidden}
-mv $ALD/{Toys,Amusements}
-
-#bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_appsdir=%{_applnkdir} \
+	kde_htmldir=%{_htmldir}
 
 %find_lang amor			--with-kde
-%find_lang kaphorism		--with-kde
-#%find_lang kfifteenapplet 	--with-kde
 %find_lang kmoon		--with-kde
 %find_lang kodo			--with-kde
 %find_lang kteatime		--with-kde
-#%find_lang kscore		--with-kde
-#%find_lang ktux 		--with-kde
 %find_lang kweather		--with-kde
 %find_lang kworldclock		--with-kde
-
-# propably should be in other packages - kde-i18n to fix:
-#%find_lang kfortune	--with-kde
-#%find_lang kscoreapplet	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -256,50 +226,41 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
 %{_datadir}/apps/amor
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
-%{_applnkdir}/Amusements/amor.desktop
-%{_pixmapsdir}/*/*/*/amor*
+%{_desktopdir}/amor.desktop
+%{_icondir}/*/*/*/amor*
 
-#%files fifteen -f kfifteenapplet.lang
 %files fifteen
 %defattr(644,root,root,755)
 %{_libdir}/kde3/fifteen_panelapplet.la
 %attr(0755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
-%files kaphorism -f kaphorism.lang
-%defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/kaphorism
-%{_datadir}/apps/kaphorism
-%{_applnkdir}/Amusements/kaphorism.desktop
-%{_pixmapsdir}/*/*/*/kaphorism*
-
 %files kmoon -f kmoon.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kmoon
 %{_datadir}/apps/kmoon
-%{_applnkdir}/Amusements/kmoon.desktop
-%{_pixmapsdir}/*/*/*/kmoon*
+%{_desktopdir}/kmoon.desktop
+%{_icondir}/*/*/*/kmoon*
 
 %files kodo -f kodo.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kodo
 %{_datadir}/apps/kodo
-%{_applnkdir}/Amusements/kodo.desktop
-%{_pixmapsdir}/*/*/*/kodo*
+%{_desktopdir}/kodo.desktop
+%{_icondir}/*/*/*/kodo*
 
 %files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kteatime
 %{_datadir}/apps/kteatime
-%{_applnkdir}/Amusements/kteatime.desktop
-%{_pixmapsdir}/*/*/*/kteatime*
+%{_desktopdir}/kteatime.desktop
+%{_icondir}/*/*/*/kteatime*
 
-#%files ktux -f ktux.lang
 %files ktux
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
-%{_applnkdir}/.hidden/ScreenSavers/ktux.desktop
+%{_datadir}/apps/kscreensaver/ktux.desktop
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
@@ -307,7 +268,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/reportview
 %{_libdir}/kde3/weather_panelapplet.la
 %attr(0755,root,root) %{_libdir}/kde3/weather_panelapplet.so
+%{_libdir}/kde3/weather_sidebar.la
+%attr(0755,root,root) %{_libdir}/kde3/weather_sidebar.so*
 %{_datadir}/apps/kicker/applets/kweather.desktop
+%{_datadir}/apps/kweatherservice/stations.dat
+%{_datadir}/apps/konqsidebartng/add/weatherbar_add.desktop
+%{_datadir}/apps/konqsidebartng/entries/weatherbar.desktop
 %{_datadir}/services/kweatherservice.desktop
 %{_datadir}/apps/kweather
 
@@ -316,8 +282,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/kworldclock
 %{_datadir}/apps/kworldclock
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
-%{_applnkdir}/Amusements/kworldclock.desktop
-%{_pixmapsdir}/*/*/*/kworldclock*
+%{_desktopdir}/kworldclock.desktop
+%{_icondir}/*/*/*/kworldclock*
 
 %files ww
 %defattr(644,root,root,755)
