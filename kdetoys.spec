@@ -224,7 +224,6 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
 # propably should be in other packages - kde-i18n to fix:
 %find_lang kfortune	--with-kde
-%find_lang kscoreapplet	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
