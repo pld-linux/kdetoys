@@ -9,7 +9,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	3.1
-Release:	1
+Release:	2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -213,7 +213,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_applnkdir}/{Toys,Amusements}
+ALD=$RPM_BUILD_ROOT%{_applnkdir}
+install -d $ALD/.hidden
+mv $ALD/{System/ScreenSavers,.hidden}
+mv $ALD/{Toys,Amusements}
 
 #bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
@@ -283,8 +286,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
-%{_applnkdir}/System/ScreenSavers/ktux.desktop
-%{_pixmapsdir}/*/*/*/ktux*
+%{_applnkdir}/.hidden/ScreenSavers/ktux.desktop
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
