@@ -5,7 +5,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	3.0.4
-Release:	1
+Release:	2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -199,6 +199,7 @@ CFLAGS="%{rpmcflags}"
 CXXFLAGS="%{rpmcflags}"
 %configure \
 	--enable-final \
+	--disable-rpath \
 	--%{?debug:en}%{!?debug:dis}able-debug
 
 %{__make}
