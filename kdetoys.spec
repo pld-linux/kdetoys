@@ -8,7 +8,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1
+Release:	2
 Epoch:		9
 License:	GPL
 Group:		X11/Amusements
@@ -91,7 +91,7 @@ z komiksów nad okienkami.
 Summary:	An xeyes KDE clone
 Summary(pl):	Klon xeyes dla KDE
 Group:		X11/Amusements
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= 9:%{version}
 Obsoletes:	kdetoys-amor < 9:3.1.93.031105-2
 
 %description eyes
@@ -104,7 +104,7 @@ Klon xeyes dla KDE.
 Summary:	A game: order 15 pieces in a 4x4 square by moving them
 Summary(pl):	Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu 4x4
 Group:		X11/Amusements
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= 9:%{version}
 
 %description fifteen
 Game: Order 15 pieces in a 4x4 square by moving them.
@@ -117,7 +117,7 @@ Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu
 Summary:	System tray applet showing the moon phase
 Summary(pl):	Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
 Group:		X11/Amusements
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= 9:%{version}
 
 %description kmoon
 System tray applet showing the current moon phase.
@@ -141,7 +141,7 @@ Licznik dystansu pokonanego przez mysz.
 Summary:	System tray applet that makes sure your tea doesn't get too strong
 Summary(pl):	Aplet zasobnika systemowego przypominaj±cy o herbacie
 Group:		X11/Amusements
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= 9:%{version}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
@@ -166,7 +166,7 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 Summary:	Kicker applet that will display the current weather outside
 Summary(pl):	Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= 9:%{version}
 Obsoletes:	kdetoys
 
 %description kweather
@@ -183,7 +183,7 @@ Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz.
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= 9:%{version}
 Requires:	konqueror >= 9:%{version}
 
 %description kworldclock
@@ -197,7 +197,7 @@ Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 Summary:	World Wide Watch applet
 Summary(pl):	Aplet World Wide Watch
 Group:		X11/Amusements
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= 9:%{version}
 
 %description ww
 World Wide Watch applet.
