@@ -4,8 +4,8 @@ Summary(ko):	K µ•Ω∫≈©≈æ »Ø∞Ê - ¿Â≥≠∞≈∏Æ
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
-Version:	3.0.3
-Release:	2
+Version:	3.0.4
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
