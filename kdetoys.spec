@@ -59,7 +59,7 @@ Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
 - kworldwatch - pokazuj±cy graficznie dzieñ i noc,
 - kodo - licznik pokazuj±cy jak d³ug± drogê pokona³a mysz.
 
-%package	amor
+%package amor
 Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
@@ -72,7 +72,19 @@ Amusing Misuse Of Resources put's comic figures above your windows.
 Zabawne, acz niew³a¶ciwe wykorzystanie zasobów, aby umie¶ciæ postacie
 z komiksów nad okienkami.
 
-%package	fifteen
+%package devel
+Summary:	Header files for kdetoys
+Summary(pl):	Pliki nag³ówkowe dla kdetoys
+Group:		X11/Development/Libraries
+Requires:	kdelibs >= 8:%{version}
+
+%description devel
+Header files for kdetoys.
+
+%description devel -l pl
+Pliki nag³ówkowe dla kdetoys.
+
+%package fifteen
 Summary:	Order 15 pieces in a 4x4 square by moving them
 Summary(pl):	Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4
 Group:		X11/Applications
@@ -145,7 +157,7 @@ Tux-in-a-Spaceship screen saver.
 %description ktux -l pl
 Wygaszacz ekranu Tux-w-statku-kosmicznym.
 
-%package	kweather
+%package kweather
 Summary:	Kicker applet that will display the current weather outside
 Summary(pl):	Applet kickera wy¶wietlaj±cy pogodê na zewn±trz
 Group:		X11/Applications
@@ -173,7 +185,7 @@ globe.
 %description kworldclock -l pl
 Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 
-%package	ww
+%package ww
 Summary:	World Wide Watch applet
 Summary(pl):	Applet World Wide Watch
 Group:		X11/Applications
@@ -185,18 +197,6 @@ World Wide Watch applet.
 
 %description ww -l pl
 Applet World Wide Watch.
-
-%package devel
-Summary:	Header files for kdetoys
-Summary(pl):	Pliki nag³ówkowe dla kdetoys
-Group:		X11/Development/Libraries
-Requires:	kdelibs >= 8:%{version}
-
-%description devel
-Header files for kdetoys.
-
-%description devel -l pl
-Pliki nag³ówkowe dla kdetoys.
 
 %prep
 %setup -q
@@ -211,9 +211,8 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 CFLAGS="%{rpmcflags}"
 CXXFLAGS="%{rpmcflags}"
 
-for plik in `find ./ -name *.desktop | grep -l '\[nb\]'` ; do
-	echo $plik
-	echo -e ',s/\[nb\]/[no]/\n,w' | ed $plik
+for plik in `find . -name \*.desktop -o -name \*rc | xargs grep -l '\[nb\]'` ; do
+	echo -e ',s/\[nb\]=/[no]=/\n,w' | ed $plik 2>/dev/null
 done
 
 %configure \
