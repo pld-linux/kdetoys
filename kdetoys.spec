@@ -1,7 +1,7 @@
 
 %define         _state          snapshots
-%define         _ver		3.1.90
-%define         _snap		030726
+%define         _ver		3.1.91
+%define         _snap		030918
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -16,7 +16,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	98831f9a9c323a9d2629a789ba43246c
+# Source0-md5:	500098f390e09b92fabe5de9bda44bec
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -29,9 +29,6 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	%{_docdir}/kde/HTML
-%define		_icondir	%{_datadir}/icons
 
 %define		no_install_post_chrpath		1
 
@@ -193,6 +190,8 @@ for plik in `find ./ -name *.desktop` ; do
 	sed -i -e "s/\[nb\]/\[no\]/g" $plik
 done
 
+%{__make} -f admin/Makefile.common cvs
+
 %configure
 
 %{__make}
@@ -202,8 +201,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_appsdir=%{_applnkdir} \
-	kde_htmldir=%{_htmldir}
+	kde_htmldir=%{_docdir}/kde/HTML
 
 %find_lang amor			--with-kde
 %find_lang kmoon		--with-kde
@@ -226,8 +224,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
 %{_datadir}/apps/amor
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
-%{_desktopdir}/amor.desktop
-%{_icondir}/*/*/*/amor*
+%{_desktopdir}/kde/amor.desktop
+%{_iconsdir}/*/*/*/amor*
 
 %files fifteen
 %defattr(644,root,root,755)
@@ -239,22 +237,22 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kmoon
 %{_datadir}/apps/kmoon
-%{_desktopdir}/kmoon.desktop
-%{_icondir}/*/*/*/kmoon*
+%{_desktopdir}/kde/kmoon.desktop
+%{_iconsdir}/*/*/*/kmoon*
 
 %files kodo -f kodo.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kodo
 %{_datadir}/apps/kodo
-%{_desktopdir}/kodo.desktop
-%{_icondir}/*/*/*/kodo*
+%{_desktopdir}/kde/kodo.desktop
+%{_iconsdir}/*/*/*/kodo*
 
 %files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kteatime
 %{_datadir}/apps/kteatime
-%{_desktopdir}/kteatime.desktop
-%{_icondir}/*/*/*/kteatime*
+%{_desktopdir}/kde/kteatime.desktop
+%{_iconsdir}/*/*/*/kteatime*
 
 %files ktux
 %defattr(644,root,root,755)
@@ -264,16 +262,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
+%attr(0755,root,root) %{_bindir}/kweatherreport
 %attr(0755,root,root) %{_bindir}/kweatherservice
-%attr(0755,root,root) %{_bindir}/reportview
+%{_libdir}/libkdeinit_kweatherreport.la
+%attr(0755,root,root) %{_libdir}/libkdeinit_kweatherreport.so
+%{_libdir}/kde3/kweatherreport.la
+%attr(0755,root,root) %{_libdir}/kde3/kweatherreport.so
 %{_libdir}/kde3/weather_panelapplet.la
 %attr(0755,root,root) %{_libdir}/kde3/weather_panelapplet.so
-%{_libdir}/kde3/weather_sidebar.la
-%attr(0755,root,root) %{_libdir}/kde3/weather_sidebar.so*
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/apps/kweatherservice/stations.dat
-%{_datadir}/apps/konqsidebartng/add/weatherbar_add.desktop
-%{_datadir}/apps/konqsidebartng/entries/weatherbar.desktop
 %{_datadir}/services/kweatherservice.desktop
 %{_datadir}/apps/kweather
 
@@ -282,8 +280,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/kworldclock
 %{_datadir}/apps/kworldclock
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
-%{_desktopdir}/kworldclock.desktop
-%{_icondir}/*/*/*/kworldclock*
+%{_desktopdir}/kde/kworldclock.desktop
+%{_iconsdir}/*/*/*/kworldclock*
 
 %files ww
 %defattr(644,root,root,755)
