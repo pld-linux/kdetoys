@@ -36,7 +36,6 @@ BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	zlib-devel
-Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -76,6 +75,7 @@ Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
 Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	amor
 
 %description amor
 Amusing Misuse Of Resources put's comic figures above your windows.
@@ -89,7 +89,7 @@ Summary:	An xeyes KDE clone
 Summary(pl):	Klon xeyes dla KDE
 Group:		X11/Applications
 Requires:	kdebase-kicker >= 9:%{version}
-Obsoletes:	%{name}-amor < 9:3.1.93.031105-2
+Obsoletes:	kdetoys-amor < 9:3.1.93.031105-2
 
 %description eyes
 An xeyes KDE clone.
@@ -197,18 +197,6 @@ World Wide Watch applet.
 
 %description ww -l pl
 Aplet World Wide Watch.
-
-%package i18n
-Summary:	Common internationalization and localization files for kdetoys
-Summary(pl):	Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdetoys
-Group:		X11/Applications
-Requires:	kdelibs-i18n >= 9:%{version}
-
-%description i18n
-Common internationalization and localization files for kdetoys.
-
-%description i18n -l pl
-Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdetoys.
 
 %package amor-i18n
 Summary:	Internationalization and localization files for amor
