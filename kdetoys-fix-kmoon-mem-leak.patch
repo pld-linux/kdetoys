@@ -1,0 +1,24 @@
+--- kdetoys-3.0.3/kmoon/kmoon.h--	2002-09-03 16:26:01.000000000 +0200
++++ kdetoys-3.0.3/kmoon/kmoon.h	2002-09-03 16:26:15.000000000 +0200
+@@ -34,6 +34,7 @@ class MoonWidget : public QLabel
+ 
+ public:
+     MoonWidget(QWidget *parent = 0, const char *name = 0);
++    ~MoonWidget();
+     void calcStatus( time_t time );
+     void setAngle(int angle);
+     bool northHemi() const { return north; }
+--- kdetoys-3.0.3/kmoon/kmoon.cpp--	2002-09-03 16:25:46.000000000 +0200
++++ kdetoys-3.0.3/kmoon/kmoon.cpp	2002-09-03 16:26:35.000000000 +0200
+@@ -84,6 +84,11 @@ MoonWidget::MoonWidget(QWidget *parent, 
+         popup = 0;
+ }
+ 
++MoonWidget::~MoonWidget()
++{
++  delete popup;
++}
++
+ void MoonWidget::calcStatus( time_t time )
+ {
+     uint lun = 0;

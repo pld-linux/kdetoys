@@ -1,0 +1,22 @@
+--- kdetoys-3.0.3/amor/amoranim.cpp--	2002-08-26 09:57:50.000000000 +0200
++++ kdetoys-3.0.3/amor/amoranim.cpp	2002-08-26 09:58:12.000000000 +0200
+@@ -123,8 +123,7 @@ AmorThemeManager::AmorThemeManager()
+ //
+ AmorThemeManager::~AmorThemeManager()
+ {
+-    if (mConfig)
+-        delete mConfig;
++  delete mConfig;
+ }
+ 
+ //---------------------------------------------------------------------------
+@@ -133,8 +132,7 @@ bool AmorThemeManager::setTheme(const QS
+ {
+     mPath = locate("appdata", file);
+ 
+-    if (mConfig)
+-        delete mConfig;
++    delete mConfig;
+ 
+     mConfig = new KSimpleConfig(mPath, true);
+     mConfig->setGroup("Config");
