@@ -1,6 +1,6 @@
 %define		_ver		3.0.3
 #define		_sub_ver
-%define		_rel		0.1
+%define		_rel		1
 
 %{?_sub_ver:	%define	_version	%{_ver}%{_sub_ver}}
 %{!?_sub_ver:	%define	_version	%{_ver}}
@@ -188,12 +188,10 @@ Pliki nag³ówkowe dla kdetoys.
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
-if [ -f %{_pkgconfigdir}/libpng12.pc ] ; then
-        CPPFLAGS="`pkg-config libpng12 --cflags`"
-fi
 CFLAGS="%{rpmcflags}"
 CXXFLAGS="%{rpmcflags}"
 %configure \
+	--enable-final \
 	--%{?debug:en}%{!?debug:dis}able-debug
 
 %{__make}
@@ -207,12 +205,16 @@ mv $RPM_BUILD_ROOT%{_applnkdir}/{Toys,Amusements}
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
-%find_lang amor --with-kde
-%find_lang kmoon --with-kde
-%find_lang kodo --with-kde
-%find_lang kteatime --with-kde
-%find_lang kweather --with-kde
-%find_lang kworldclock --with-kde
+%find_lang amor		--with-kde
+%find_lang kaphorism	--with-kde
+%find_lang kfifteenapplet --with-kde
+%find_lang kfortune	--with-kde
+%find_lang kmoon	--with-kde
+%find_lang kodo		--with-kde
+%find_lang kteatime	--with-kde
+%find_lang ktux 	--with-kde
+%find_lang kweather	--with-kde
+%find_lang kworldclock	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -233,13 +235,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Amusements/amor.desktop
 %{_pixmapsdir}/*/*/*/amor*
 
-%files fifteen
+%files fifteen -f kfifteenapplet.lang
 %defattr(644,root,root,755)
 %{_libdir}/kde3/fifteen_*.la
 %{_libdir}/kde3/fifteen_*.so.*.*.*
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
-%files kaphorism
+%files kaphorism -f kaphorism.lang
 %defattr(644,root,root,755)
 %{_bindir}/kaphorism
 %{_datadir}/apps/kaphorism
@@ -266,7 +268,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Amusements/kteatime.desktop
 %{_pixmapsdir}/*/*/*/kteatime*
 
-%files ktux
+%files ktux -f ktux.lang
 %defattr(644,root,root,755)
 %{_bindir}/ktux
 %{_datadir}/apps/ktux
