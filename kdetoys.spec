@@ -1,7 +1,7 @@
 
 %define         _state          snapshots
 %define         _ver		3.1.90
-%define         _snap		030621
+%define         _snap		030726
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -16,12 +16,12 @@ License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	6457c930dde2ff1e64e030500ae16345
+# Source0-md5:	98831f9a9c323a9d2629a789ba43246c
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel >= %{version}
+BuildRequires:	kdebase-devel >= %{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
@@ -158,7 +158,8 @@ Applet kickera wy¶wietlaj±cy pogodê na zewn±trz.
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
-Requires:	kdebase >= %{version}
+Requires:	kdebase-kicker >= %{version}
+Requires:	konqueror >= %{version}
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
