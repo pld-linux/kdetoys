@@ -1,6 +1,6 @@
 
 %define		_state		stable
-%define		_ver		3.2.0	
+%define		_ver		3.2.1
 ##%define		_snap		040110
 #
 # Conditional build:
@@ -13,13 +13,13 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	%{_ver}
-Release:	4
+Release:	0.1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 ####Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
-# Source0-md5:	b9fdd2b51a25501322e3dd3301760a41
+Source0:	http://download.kde.org/%{_state}/%{_ver}/src/%{name}-%{_ver}.tar.bz2
+# Source0-md5:	217c8c2ddb4040abe13a719d6b18e807
 %if %{with i18n}
 Source1:	http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
 # Source1-md5:	fa44500a6aa6417b45433ef54ac0fd64
@@ -326,7 +326,7 @@ Pliki umiÍdzynarodawiaj±ce dla fifteen.
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 %patch2 -p1
 
 %build
