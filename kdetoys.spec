@@ -13,7 +13,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	3
+Release:	4
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -24,8 +24,9 @@ Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
 Source1:	http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
 # Source1-md5:	fa44500a6aa6417b45433ef54ac0fd64
 %endif
-Patch0:		%{name}-fix-amor.patch
-Patch1:		%{name}-screensavers.patch
+Patch0:         %{name}-3.2branch.diff
+Patch1:		%{name}-fix-amor.patch
+Patch2:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
 URL:		http://www.kde.org/
 BuildRequires:	ed
@@ -177,7 +178,7 @@ Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
 Requires:	kdebase-kicker >= 9:%{version}
-Requires:	konqueror >= >= 9:%{version}
+Requires:	konqueror >= 9:%{version}
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
@@ -325,8 +326,8 @@ Pliki umiêdzynarodawiaj±ce dla fifteen.
 
 %prep
 %setup -q
-#%patch0 -p1
-%patch1 -p1
+%patch0 -p1
+%patch2 -p1
 
 %build
 cp /usr/share/automake/config.sub admin
