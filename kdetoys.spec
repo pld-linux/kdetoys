@@ -1,11 +1,15 @@
-
-%define		_state		snapshots
-%define		_ver		3.2.0	
-%define		_snap		040407
 #
 # Conditional build:
 %bcond_with i18n	# w/wo 18n subpackages
-#
+
+%define		_state		snapshots
+%define		_ver		3.2.0	
+%define		_snap		040511
+%define		_packager	adgor
+
+%define		_minlibsevr	9:3.2.90.040508
+%define		_minbaseevr	9:3.2.90.040508
+
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
 Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
@@ -18,15 +22,15 @@ Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	7e0eb4a763e2b8526fa7991642be6dff
+Source0:	http://ep09.pld-linux.org/~%{_packager}/kde/%{name}-%{_snap}.tar.bz2
+##%% Source0-md5:	7e0eb4a763e2b8526fa7991642be6dff
 #Source1:	http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
 ##%% Source1-md5:	fa44500a6aa6417b45433ef54ac0fd64
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
 BuildRequires:	ed
 BuildRequires:	gettext-devel
-BuildRequires:	kdebase-devel >= 9:%{version}
+BuildRequires:	kdebase-devel >= %{_minbaseevr}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
@@ -59,7 +63,7 @@ Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
 Summary:	Header files for kdetoys
 Summary(pl):	Pliki nag³ówkowe dla kdetoys
 Group:		X11/Development/Libraries
-Requires:	kdelibs-devel >= 9:%{version}
+Requires:	kdelibs-devel >= %{_minlibsevr}
 
 %description devel
 Header files for kdetoys.
@@ -71,7 +75,7 @@ Pliki nag³ówkowe dla kdetoys.
 Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 
 %description amor
 Amusing Misuse Of Resources put's comic figures above your windows.
@@ -84,8 +88,8 @@ z komiksów nad okienkami.
 Summary:	An xeyes KDE clone
 Summary(pl):	Klon xeyes dla KDE
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
-Obsoletes:	%{name}-amor < 9:3.1.93.031105-2
+Requires:	kdebase-desktop >= %{_minbaseevr}
+Obsoletes:	kdetoys-amor < 9:3.1.93.031105-2
 
 %description eyes
 An xeyes KDE clone.
@@ -97,7 +101,7 @@ Klon xeyes dla KDE.
 Summary:	A game: order 15 pieces in a 4x4 square by moving them
 Summary(pl):	Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu 4x4
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description fifteen
 Game: Order 15 pieces in a 4x4 square by moving them.
@@ -110,7 +114,7 @@ Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu
 Summary:	System tray applet showing the moon phase
 Summary(pl):	Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description kmoon
 system tray applet showing the moon phase.
@@ -122,7 +126,7 @@ Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
 Summary:	Mouse movement meter
 Summary(pl):	Licznik dystansu pokonanego przez mysz
 Group:		X11/Applications
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 
 %description kodo
 Mouse movement meter.
@@ -134,7 +138,7 @@ Licznik dystansu pokonanego przez mysz.
 Summary:	System tray applet that makes sure your tea doesn't get too strong
 Summary(pl):	Aplet zasobnika systemowego przypominaj±cy o herbacie
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-kicker >= %{_minbaseevr}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
@@ -147,7 +151,7 @@ mocna.
 Summary:	Tux-in-a-Spaceship screen saver
 Summary(pl):	Wygaszacz ekranu Tux-w-statku-kosmicznym
 Group:		X11/Applications
-Requires:	kdebase-screensavers >= 9:%{version}
+Requires:	kdebase-screensavers >= %{_minbaseevr}
 
 %description ktux
 Tux-in-a-Spaceship screen saver.
@@ -159,7 +163,7 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 Summary:	Kicker applet that will display the current weather outside
 Summary(pl):	Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys
 
 %description kweather
@@ -172,8 +176,7 @@ Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz.
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
-Requires:	konqueror >= 9:%{version}
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
@@ -186,7 +189,7 @@ Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 Summary:	World Wide Watch applet
 Summary(pl):	Aplet World Wide Watch
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description ww
 World Wide Watch applet.
@@ -320,7 +323,7 @@ Internationalization and localization files for fifteen.
 Pliki umiêdzynarodawiaj±ce dla fifteen.
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{name}-%{_snap}
 %patch0 -p1
 
 %build
