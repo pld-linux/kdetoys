@@ -1,11 +1,10 @@
 
 %define		_state		snapshots
-%define		_ver		3.2.0	
-%define		_snap		040525
-%define		_packager	adgor
+%define		_ver		3.2.91	
+%define		_snap		040704
 
-%define		_minlibsevr	9:3.2.90.040524
-%define		_minbaseevr	9:3.2.90.040524
+%define		_minlibsevr	9:3.2.91.040629
+%define		_minbaseevr	9:3.2.91.040629
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -18,9 +17,7 @@ Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
-#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	http://ep09.pld-linux.org/~%{_packager}/kde/%{name}-%{_snap}.tar.bz2
-##%% Source0-md5:	7e0eb4a763e2b8526fa7991642be6dff
+Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
 BuildRequires:	ed
@@ -197,6 +194,8 @@ Aplet World Wide Watch.
 %setup -q -n %{name}-%{_snap}
 %patch0 -p1
 
+echo "KDE_OPTIONS = nofinal" >> kmoon/Makefile.am
+
 %build
 cp /usr/share/automake/config.sub admin
 
@@ -258,9 +257,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kmoon -f kmoon.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kmoon
+%{_libdir}/kde3/kmoon_panelapplet.la
+%attr(755,root,root) %{_libdir}/kde3/kmoon_panelapplet.so
+%{_datadir}/apps/kicker/applets/kmoonapplet.desktop
 %{_datadir}/apps/kmoon
-%{_desktopdir}/kde/kmoon.desktop
 %{_iconsdir}/*/*/*/kmoon*
 %{_mandir}/man1/kmoon.1*
 
