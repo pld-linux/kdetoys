@@ -9,7 +9,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	3.0.99
-Release:	1
+Release:	2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -146,6 +146,7 @@ Group:		X11/Applications
 Requires:	kdelibs >= %{version}
 Provides:	kweather
 Obsoletes:	kweather
+Obsoletes:	kdetoys
 
 %description kweather
 Kicker applet that will display the current weather outside.
