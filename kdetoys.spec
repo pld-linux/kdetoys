@@ -2,7 +2,7 @@ Summary:	Toys for KDE
 Summary(pl):	Zabawki dla KDE
 Name:		kdetoys
 Version:	3.0.3
-Release:	1
+Release:	2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -222,9 +222,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files amor -f amor.lang
 %defattr(644,root,root,755)
-%{_bindir}/amor
-%{_libdir}/kde3/eyes_*.la
-%{_libdir}/kde3/eyes_*.so.*.*.*
+%attr(0755,root,root) %{_bindir}/amor
+%attr(0755,root,root) %{_libdir}/kde3/eyes_*.la
+%attr(0755,root,root) %{_libdir}/kde3/eyes_*.so.*.*.*
 %{_datadir}/apps/amor
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
 %{_applnkdir}/Amusements/amor.desktop
@@ -232,54 +232,54 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fifteen -f kfifteenapplet.lang
 %defattr(644,root,root,755)
-%{_libdir}/kde3/fifteen_*.la
-%{_libdir}/kde3/fifteen_*.so.*.*.*
+%attr(0755,root,root) %{_libdir}/kde3/fifteen_*.la
+%attr(0755,root,root) %{_libdir}/kde3/fifteen_*.so.*.*.*
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
 %files kaphorism -f kaphorism.lang
 %defattr(644,root,root,755)
-%{_bindir}/kaphorism
+%attr(0755,root,root) %{_bindir}/kaphorism
 %{_datadir}/apps/kaphorism
 %{_applnkdir}/Amusements/kaphorism.desktop
 %{_pixmapsdir}/*/*/*/kaphorism*
 
 %files kmoon -f kmoon.lang
 %defattr(644,root,root,755)
-%{_bindir}/kmoon
+%attr(0755,root,root) %{_bindir}/kmoon
 %{_datadir}/apps/kmoon
 %{_applnkdir}/Amusements/kmoon.desktop
 %{_pixmapsdir}/*/*/*/kmoon*
 
 %files kodo -f kodo.lang
 %defattr(644,root,root,755)
-%{_bindir}/kodo
+%attr(0755,root,root) %{_bindir}/kodo
 %{_datadir}/apps/kodo
 %{_applnkdir}/Amusements/kodo.desktop
 %{_pixmapsdir}/*/*/*/kodo*
 
 %files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
-%{_bindir}/kteatime
+%attr(0755,root,root) %{_bindir}/kteatime
 %{_applnkdir}/Amusements/kteatime.desktop
 %{_pixmapsdir}/*/*/*/kteatime*
 
 %files ktux -f ktux.lang
 %defattr(644,root,root,755)
-%{_bindir}/ktux
+%attr(0755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
 %{_applnkdir}/System/ScreenSavers/ktux.desktop
 %{_pixmapsdir}/*/*/*/ktux*
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
-%{_libdir}/kde3/weather_*.la
-%{_libdir}/kde3/weather_*.so.*.*.*
+%attr(0755,root,root) %{_libdir}/kde3/weather_*.la
+%attr(0755,root,root) %{_libdir}/kde3/weather_*.so.*.*.*
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/apps/kweather
 
 %files kworldclock -f kworldclock.lang
 %defattr(644,root,root,755)
-%{_bindir}/kworldclock
+%attr(0755,root,root) %{_bindir}/kworldclock
 %{_datadir}/apps/kworldclock
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
 %{_applnkdir}/Amusements/kworldclock.desktop
@@ -287,14 +287,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files ww
 %defattr(644,root,root,755)
-%{_libdir}/kde3/ww_*.la
-%{_libdir}/kde3/ww_*.so.*.*.*
+%attr(0755,root,root) %{_libdir}/kde3/ww_*.la
+%attr(0755,root,root) %{_libdir}/kde3/ww_*.so.*.*.*
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
-%{_libdir}/kde3/fifteen_*.so
-%{_libdir}/kde3/eyes_*.so
-%{_libdir}/kde3/weather_*.so
-%{_libdir}/kde3/ww_*.so
+%attr(0755,root,root) %{_libdir}/kde3/fifteen_*.so
+%attr(0755,root,root) %{_libdir}/kde3/eyes_*.so
+%attr(0755,root,root) %{_libdir}/kde3/weather_*.so
+%attr(0755,root,root) %{_libdir}/kde3/ww_*.so
