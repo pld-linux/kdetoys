@@ -12,7 +12,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1
+Release:	2
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -238,6 +238,10 @@ export UNSERMAKE=%{_datadir}/unsermake/unsermake
 	--disable-rpath \
 	--enable-final \
 	--with-qt-libraries=%{_libdir} \
+	%if "%{_lib}" == "lib64"
+	--enable-libsuffix=64 \
+	%endif
+	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full}
 
 %{__make}
 
