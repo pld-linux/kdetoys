@@ -381,7 +381,6 @@ kworldclock"
 %if %{with i18n}
 %find_lang kfifteenapplet	--with-kde
 %find_lang ktux			--with-kde
-%find_lang desktop_kdetoys	--with-kde
 %endif
 
 for i in $files; do
@@ -407,7 +406,6 @@ done
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with i18n}
-%files i18n -f desktop_kdetoys.lang
 %files amor-i18n -f amor.lang
 %files kmoon-i18n -f kmoon.lang
 %files kodo-i18n -f kodo.lang
