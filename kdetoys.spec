@@ -1,10 +1,10 @@
 
-%define		_state		stable
+%define		_state		snapshots
 %define		_ver		3.2.0	
-##%define		_snap		040110
+%define		_snap		040216
 #
 # Conditional build:
-%bcond_without	i18n	# don't build i18n subpackages
+%bcond_with i18n	# w/wo 18n subpackages
 #
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -12,21 +12,17 @@ Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
-Version:	%{_ver}
-Release:	4
+Version:	%{_ver}.%{_snap}
+Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
-####Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
-# Source0-md5:	b9fdd2b51a25501322e3dd3301760a41
-%if %{with i18n}
-Source1:	http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	fa44500a6aa6417b45433ef54ac0fd64
-%endif
-Patch0:         %{name}-3.2branch.diff
-Patch1:		%{name}-fix-amor.patch
-Patch2:		%{name}-screensavers.patch
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+Source0:	http://ep09.pld-linux.org/~adgor/kde/%{name}.tar.bz2
+##%% Source0-md5:	b9fdd2b51a25501322e3dd3301760a41
+#Source1:	http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
+##%% Source1-md5:	fa44500a6aa6417b45433ef54ac0fd64
+Patch0:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
 URL:		http://www.kde.org/
 BuildRequires:	ed
@@ -325,12 +321,14 @@ Internationalization and localization files for fifteen.
 Pliki umiêdzynarodawiaj±ce dla fifteen.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 %patch0 -p1
-%patch2 -p1
 
 %build
 cp /usr/share/automake/config.sub admin
+
+export UNSERMAKE=/usr/share/unsermake/unsermake
+
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
@@ -365,25 +363,26 @@ else
 fi
 %endif
 
-%find_lang amor			--with-kde
-%find_lang kmoon		--with-kde
-%find_lang kodo			--with-kde
-%find_lang kteatime		--with-kde
-%find_lang kweather		--with-kde
-%find_lang kworldclock		--with-kde
-
-files="amor \
-kmoon \
-kodo \
-kteatime \
-kweather \
-kworldclock"
+%find_lang amor		--with-kde
+%find_lang kmoon	--with-kde
+%find_lang kodo		--with-kde
+%find_lang kteatime	--with-kde
+%find_lang kweather	--with-kde
+%find_lang kworldclock	--with-kde
 
 %if %{with i18n}
 %find_lang kfifteenapplet	--with-kde
 %find_lang ktux			--with-kde
 %find_lang desktop_kdetoys	--with-kde
 %endif
+
+files="\
+	amor \
+	kmoon \
+	kodo \
+	kteatime \
+	kweather \
+	kworldclock"
 
 for i in $files; do
 	> ${i}_en.lang
@@ -395,8 +394,7 @@ done
 
 durne=`ls -1 *.lang|grep -v _en`
 
-for i in $durne; 
-do
+for i in $durne; do
 	echo $i >> control
 	grep -v en\/ $i|grep -v apidocs >> ${i}.1
 	if [ -f ${i}.1 ] ; then
@@ -489,7 +487,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/kde3/weather_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/weather_panelapplet.so
 %{_datadir}/apps/kicker/applets/kweather.desktop
-%{_datadir}/apps/kweatherservice/stations.dat
+%{_datadir}/apps/kweatherservice
 %{_datadir}/services/kcmweather.desktop
 %{_datadir}/services/kcmweatherservice.desktop
 %{_datadir}/services/kweatherservice.desktop
