@@ -1,12 +1,8 @@
-%define		_ver		3.0.3
-#define		_sub_ver
-%define		_rel		1
-
 Summary:	Toys for KDE
 Summary(pl):	Zabawki dla KDE
 Name:		kdetoys
-Version:	%{_ver}
-Release:	%{_rel}
+Version:	3.0.3
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
