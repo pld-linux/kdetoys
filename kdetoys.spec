@@ -1,9 +1,9 @@
 
 %define		_state		stable
-%define		_ver		3.3.0
+%define		_ver		3.3.1
 
-%define		_minlibsevr	9:3.3.0
-%define		_minbaseevr	9:3.3.0
+%define		_minlibsevr	9:3.3.1
+%define		_minbaseevr	9:3.3.1
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -12,13 +12,14 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE嚔赤殻會
 Name:		kdetoys
 Version:	%{_ver}
-Release:	3
+Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Icon:		kde-toys.xpm
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/3.3/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	935e3e2e6d84c9fedb2f8acb8e36cdc7
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	ef76385dd7856ef964102fddf1936450
+# Source0-size:	2762461
 #Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{version}-%{_snap}.tar.bz2
 Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
@@ -274,7 +275,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/amor.desktop
 %{_iconsdir}/*/*/*/amor*
 %{_mandir}/man1/amor.1*
-%{_kdedocdir}/en/amor
 
 %files eyes
 %defattr(644,root,root,755)
@@ -296,7 +296,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmoon
 %{_iconsdir}/*/*/*/kmoon*
 #%{_mandir}/man1/kmoon.1*
-%{_kdedocdir}/en/kmoon
 
 %files kodo -f kodo.lang
 %defattr(644,root,root,755)
@@ -305,7 +304,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kodo.desktop
 %{_iconsdir}/*/*/*/kodo*
 %{_mandir}/man1/kodo.1*
-%{_kdedocdir}/en/kodo
 
 %files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
@@ -314,7 +312,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kteatime.desktop
 %{_iconsdir}/*/*/*/kteatime*
 %{_mandir}/man1/kteatime.1*
-%{_kdedocdir}/en/kteatime
 
 %files ktux
 %defattr(644,root,root,755)
@@ -346,7 +343,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/kweather.png
 %{_mandir}/man1/kweatherreport.1*
 %{_mandir}/man1/kweatherservice.1*
-%{_kdedocdir}/en/kweather
 
 %files kworldclock -f kworldclock.lang
 %defattr(644,root,root,755)
@@ -356,7 +352,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kworldclock.desktop
 %{_iconsdir}/*/*/*/kworldclock*
 %{_mandir}/man1/kworldclock.1*
-%{_kdedocdir}/en/kworldclock
 %{_libdir}/kde3/ww_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/ww_panelapplet.so
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
