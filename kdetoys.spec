@@ -898,7 +898,7 @@ rm -rf $RPM_BUILD_ROOT
 if [ -f "%{SOURCE1}" ] ; then
 	bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 	for f in $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/*.mo; do
-		if [ "`file $f | sed -e 's/.*,//' -e 's/message.*//'`" -le 1 ] ; then
+	if [ "`file $f | sed -e 's/.*,//' -e 's/message.*//'`" -le 1 ] ; then
 			rm -f $f
 		fi
 	done
