@@ -32,9 +32,7 @@ Prereq:		/sbin/ldconfig
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 %define		_htmldir	/usr/share/doc/kde/HTML
-%define		_mandir		%{_prefix}/man
 
 %description
 The kdetoys package includes various toys for the K Desktop
