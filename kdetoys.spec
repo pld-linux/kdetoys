@@ -237,10 +237,15 @@ mv $ALD/{Toys,Amusements}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/*
+
 %files amor -f amor.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/amor
-%attr(0755,root,root) %{_libdir}/kde3/eyes_*
+%{_libdir}/kde3/eyes_panelapplet.la
+%attr(0755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
 %{_datadir}/apps/amor
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
 %{_applnkdir}/Amusements/amor.desktop
@@ -249,7 +254,8 @@ rm -rf $RPM_BUILD_ROOT
 #%files fifteen -f kfifteenapplet.lang
 %files fifteen
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_libdir}/kde3/fifteen_*
+%{_libdir}/kde3/fifteen_panelapplet.la
+%attr(0755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
 %files kaphorism -f kaphorism.lang
@@ -291,7 +297,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kweatherservice
 %attr(0755,root,root) %{_bindir}/reportview
-%attr(0755,root,root) %{_libdir}/kde3/weather_*
+%{_libdir}/kde3/weather_panelapplet.la
+%attr(0755,root,root) %{_libdir}/kde3/weather_panelapplet.so
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/services/kweatherservice.desktop
 %{_datadir}/apps/kweather
@@ -306,9 +313,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files ww
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_libdir}/kde3/ww_*
+%{_libdir}/kde3/ww_panelapplet.la
+%attr(0755,root,root) %{_libdir}/kde3/ww_panelapplet.so
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
-
-%files devel
-%defattr(644,root,root,755)
-%{_includedir}/*
