@@ -106,8 +106,8 @@ system tray applet showing the moon phase.
 Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
 
 %package kodo
-Summary:	Mouse movement meter.
-Summary(pl):	Licznik dystansu pokonanego przez mysz.
+Summary:	Mouse movement meter
+Summary(pl):	Licznik dystansu pokonanego przez mysz
 Group:		X11/Applications
 Requires:	kdelibs = %{version}
 
@@ -119,7 +119,7 @@ Licznik dystansu pokonanego przez mysz.
 
 %package kteatime
 Summary:	System tray applet that makes sure your tea doesn't get too strong
-Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie.
+Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie
 Group:		X11/Applications
 Requires:	kdelibs = %{version}
 
