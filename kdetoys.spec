@@ -1,7 +1,7 @@
 
 %define         _state          snapshots
 %define         _ver		3.1.92
-%define         _snap		030930
+%define         _snap		031006
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -16,7 +16,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	8eb021809e480b76908ddd2f6c20978c
+# Source0-md5:	62762e59893af38801012f27cabef8dc
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
