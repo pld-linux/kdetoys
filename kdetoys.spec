@@ -1,5 +1,6 @@
 
 %define		_state		stable
+%define		_kdever		3.4
 %define		_ver		3.4.0
 
 %define		_minlibsevr	9:3.4.0
@@ -17,7 +18,7 @@ Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Icon:		kde-toys.xpm
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	aad06c1e9cc8909bba4db4f3a746f666
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
