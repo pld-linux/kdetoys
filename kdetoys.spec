@@ -1,6 +1,6 @@
 
 %define		_state		stable
-%define		_ver		3.1.4
+%define		_ver		3.1.5
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -9,15 +9,15 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE嚔赤殻會
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	58c9a31f31564513414fbaf09fc13b29
+# Source0-md5:	ef9ad9c79647a8c72aa72285810c50d8
 # generated from kde-i18n
-Source1:	ftp://blysk.ds.pg.gda.pl/linux/kde-i18n-package/%{version}/kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	0a4143c50c420724165373f911b69860
+Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+# Source1-md5:	04b997f218b21a89908452ce88f52a68
 Source2:	%{name}-extra_icons.tar.bz2
 # Source2-md5:	c6274c6ec1144003dad2c9c2e96f99fb
 Patch0:		%{name}-fix-amor.patch
