@@ -1,0 +1,21 @@
+--- kdetoys-030329/ktux/Makefile.am~	Sat Mar 17 11:50:41 2001
++++ kdetoys-030329/ktux/Makefile.am	Thu Apr  3 02:35:18 2003
+@@ -33,6 +33,6 @@
+ 
+ KDE_ICON = ktux
+ 
+-appsdir   = $(kde_appsdir)/System/ScreenSavers
++appsdir   = $(kde_datadir)/kscreensaver
+ apps_DATA = ktux.desktop
+ 
+--- kdetoys-030329/ktux/Makefile.in~	Sat Mar 29 00:54:05 2003
++++ kdetoys-030329/ktux/Makefile.in	Thu Apr  3 02:36:05 2003
+@@ -278,7 +278,7 @@
+ 
+ KDE_ICON = ktux
+ 
+-appsdir = $(kde_appsdir)/System/ScreenSavers
++appsdir = $(kde_datadir)/kscreensaver
+ apps_DATA = ktux.desktop
+ subdir = ktux
+ mkinstalldirs = $(SHELL) $(top_srcdir)/admin/mkinstalldirs
