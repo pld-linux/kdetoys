@@ -10,7 +10,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}.%{_snap}
-Release:	1
+Release:	2
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -67,7 +67,7 @@ Pliki nag³ówkowe dla kdetoys.
 Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
-Requires:	kdebase-kicker >= 9:%{version}
+Requires:	kdebase-core >= 9:%{version}
 
 %description amor
 Amusing Misuse Of Resources put's comic figures above your windows.
@@ -75,6 +75,19 @@ Amusing Misuse Of Resources put's comic figures above your windows.
 %description amor -l pl
 Zabawne, acz niew³a¶ciwe wykorzystanie zasobów, aby umie¶ciæ postacie
 z komiksów nad okienkami.
+
+%package eyes
+Summary:	TODO
+Summary(pl):	TODO
+Group:		X11/Applications
+Requires:	kdebase-kicker >= 9:%{version}
+Obsoletes:	%{name}-amor < 9:3.1.93.031105-2
+
+%description eyes
+TODO.
+
+%description eyes -l pl
+TODO.
 
 %package fifteen
 Summary:	Order 15 pieces in a 4x4 square by moving them
@@ -141,7 +154,7 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 Summary:	Kicker applet that will display the current weather outside
 Summary(pl):	Applet kickera wy¶wietlaj±cy pogodê na zewn±trz
 Group:		X11/Applications
-Requires:	konqueror >= %{version}
+Requires:	kdebase-kicker >= 9:%{version}
 Obsoletes:	kdetoys
 
 %description kweather
@@ -175,7 +188,6 @@ World Wide Watch applet.
 
 %description ww -l pl
 Applet World Wide Watch.
-
 
 %prep
 %setup -q -n %{name}-%{_snap}
@@ -220,12 +232,15 @@ rm -rf $RPM_BUILD_ROOT
 %files amor -f amor.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/amor
-%{_libdir}/kde3/eyes_panelapplet.la
-%attr(0755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
 %{_datadir}/apps/amor
-%{_datadir}/apps/kicker/applets/eyesapplet.desktop
 %{_desktopdir}/kde/amor.desktop
 %{_iconsdir}/*/*/*/amor*
+
+%files eyes
+%defattr(644,root,root,755)
+%{_libdir}/kde3/eyes_panelapplet.la
+%attr(0755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
+%{_datadir}/apps/kicker/applets/eyesapplet.desktop
 
 %files fifteen
 %defattr(644,root,root,755)
