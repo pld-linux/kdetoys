@@ -8,7 +8,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	2
+Release:	3
 Epoch:		9
 License:	GPL
 Group:		X11/Amusements
@@ -19,16 +19,15 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.
 Patch0:		%{name}-screensavers.patch
 Icon:		kde-toys.xpm
 URL:		http://www.kde.org/
-BuildRequires:	unsermake >= 040511
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdebase-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	unsermake >= 040511
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -84,8 +83,15 @@ from within another KDE-compliant window manager, but has not been
 tested.
 
 %description amor -l pl
-Zabawne, acz niew³a¶ciwe wykorzystanie zasobów, aby umie¶ciæ postacie
-z komiksów nad okienkami.
+AMOR to skrót od Amusing Misuse of Resources, czyli zabawne, acz
+niew³a¶ciwe wykorzystanie zasobów. Jest to animacja umieszczona nad
+aktywnym okienkiem. W domy¶lnej konfiguracji AMOR przyjmuje postaæ
+¿ó³tej plamki wykonuj±cej ró¿ne tricki. AMOR ma tak¿e wiele ró¿nych
+motywów zmieniaj±cych wygl±d i zachowanie animacji.
+
+Poniewa¿ AMOR dzia³a z zarz±dc± okien KDE, bêdzie dzia³aæ tylko w KDE.
+Mo¿liwe, ¿e AMOR dzia³a z niektórymi innymi zarz±dcami okien zgodnymi
+z KDE, ale nie by³o to testowane.
 
 %package eyes
 Summary:	An xeyes KDE clone
@@ -164,7 +170,7 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 
 %package kweather
 Summary:	Kicker applet that will display the current weather outside
-Summary(pl):	Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz
+Summary(pl):	Aplet kickera wy¶wietlaj±cy aktualn± pogodê na zewn±trz
 Group:		X11/Applications
 Requires:	kdebase-desktop >= 9:%{version}
 Obsoletes:	kdetoys
@@ -177,7 +183,11 @@ and provide this information to other applications including
 Konqueror's sidebar and Kontact's summary page.
 
 %description kweather -l pl
-Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz.
+kweather to aplikacja dostarczaj±ca ikonê panelu, umo¿liwiaj±c±
+ogl±danie pogody og³aszanej przez lokaln± stacjê oraz dostarczaj±c±
+serwis pogodowy potrafi±cy ¶ledziæ wiele stacji pogodowych, a tak¿e
+dostarczaj±ca te informacje dla innych aplikacji, w³±cznie z paskiem
+Konquerora oraz stron± podsumowuj±c± Kontacta.
 
 %package kworldclock
 Summary:	Daylight area on the world globe
