@@ -12,7 +12,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1
+Release:	2
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -215,7 +215,6 @@ Summary:	Internationalization and localization files for amor
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla amora
 Group:		X11/Applications
 Requires:	%{name}-amor = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
 
 %description amor-i18n
@@ -229,7 +228,6 @@ Summary:	Internationalization and localization files for kmoon
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kmoon
 Group:		X11/Applications
 Requires:	%{name}-kmoon = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
 
 %description kmoon-i18n
@@ -243,7 +241,6 @@ Summary:	Internationalization and localization files for kodo
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kodo
 Group:		X11/Applications
 Requires:	%{name}-kodo = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
 
 %description kodo-i18n
@@ -257,7 +254,6 @@ Summary:	Internationalization and localization files for kteatime
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kteatime
 Group:		X11/Applications
 Requires:	%{name}-kteatime = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
 
 %description kteatime-i18n
@@ -271,7 +267,6 @@ Summary:	Internationalization and localization files for kweather
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kweather
 Group:		X11/Applications
 Requires:	%{name}-kweather = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
 
 %description kweather-i18n
@@ -285,7 +280,6 @@ Summary:	Internationalization and localization files for kworldclock
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kworldclocka
 Group:		X11/Applications
 Requires:	%{name}-kworldclock = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
 Requires:	konqueror-i18n >= 9:%{version}
 
@@ -300,7 +294,6 @@ Summary:	Internationalization and localization files for ktux
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla ktuksa
 Group:		X11/Applications
 Requires:	%{name}-ktux = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-screensavers-i18n >= 9:%{version}
 
 %description ktux-i18n
@@ -314,7 +307,6 @@ Summary:	Internationalization and localization files for fifteen
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla fifteen
 Group:		X11/Applications
 Requires:	%{name}-fifteen = %{epoch}:%{version}-%{release}
-Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
 
 %description fifteen-i18n
