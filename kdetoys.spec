@@ -24,7 +24,6 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	zlib-devel
-Prereq:		/sbin/ldconfig
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -79,7 +78,7 @@ Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4.
 
 %package kaphorism
 Summary:	Displays aphorisms
-Summary(pl):	Wy¶wietlanie foryzmy
+Summary(pl):	Wy¶wietlanie aforyzmów
 Group:		X11/Applications
 Requires:	kdelibs >= %{version}
 
@@ -87,7 +86,7 @@ Requires:	kdelibs >= %{version}
 Displays aphorisms.
 
 %description kaphorism -l pl
-Wy¶wietla aforyzmy.
+Wy¶wietlanie aforyzmów.
 
 %package kmoon
 Summary:	System tray applet showing the moon phase
@@ -102,8 +101,8 @@ system tray applet showing the moon phase.
 Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
 
 %package kodo
-Summary:	Mouse movement meter.
-Summary(pl):	Licznik dystansu pokonanego przez mysz.
+Summary:	Mouse movement meter
+Summary(pl):	Licznik dystansu pokonanego przez mysz
 Group:		X11/Applications
 Requires:	kdelibs >= %{version}
 
@@ -115,7 +114,7 @@ Licznik dystansu pokonanego przez mysz.
 
 %package kteatime
 Summary:	System tray applet that makes sure your tea doesn't get too strong
-Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie.
+Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie
 Group:		X11/Applications
 Requires:	kdelibs >= %{version}
 
@@ -124,7 +123,7 @@ System tray applet that makes sure your tea doesn't get too strong.
 
 %description kteatime -l pl
 Applet zasobika systemowego, który upewnia siê, ¿e twoja herbata nie
-stanie siê zbyt mocna..
+stanie siê zbyt mocna.
 
 %package ktux
 Summary:	Tux-in-a-Spaceship screen saver
