@@ -1,7 +1,7 @@
 
 %define         _state          snapshots                                        
 %define         _ver		3.2
-%define         _snap		030423
+%define         _snap		030504
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -53,11 +53,23 @@ Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
 - kworldwatch - pokazuj±cy graficznie dzieñ i noc,
 - kodo - licznik pokazuj±cy jak d³ug± drogê pokona³a mysz.
 
+%package devel
+Summary:	Header files for kdetoys
+Summary(pl):	Pliki nag³ówkowe dla kdetoys
+Group:		X11/Development/Libraries
+Requires:	kdelibs >= %{version}
+
+%description devel
+Header files for kdetoys.
+
+%description devel -l pl
+Pliki nag³ówkowe dla kdetoys.
+
 %package	amor
 Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdebase-kicker >= %{version}
 
 %description amor
 Amusing Misuse Of Resources put's comic figures above your windows.
@@ -70,7 +82,7 @@ z komiksów nad okienkami.
 Summary:	Order 15 pieces in a 4x4 square by moving them
 Summary(pl):	Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdebase-kicker >= %{version}
 
 %description fifteen
 Order 15 pieces in a 4x4 square by moving them.
@@ -78,23 +90,11 @@ Order 15 pieces in a 4x4 square by moving them.
 %description fifteen -l pl
 Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4.
 
-%package kaphorism
-Summary:	Displays aphorisms
-Summary(pl):	Wy¶wietlanie aforyzmów
-Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-
-%description kaphorism
-Displays aphorisms.
-
-%description kaphorism -l pl
-Wy¶wietlanie aforyzmów.
-
 %package kmoon
 Summary:	System tray applet showing the moon phase
 Summary(pl):	Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdebase-kicker >= %{version}
 
 %description kmoon
 system tray applet showing the moon phase.
@@ -106,7 +106,7 @@ Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
 Summary:	Mouse movement meter
 Summary(pl):	Licznik dystansu pokonanego przez mysz
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdebase-core >= %{version}
 
 %description kodo
 Mouse movement meter.
@@ -118,7 +118,7 @@ Licznik dystansu pokonanego przez mysz.
 Summary:	System tray applet that makes sure your tea doesn't get too strong
 Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdebase-kicker >= %{version}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
@@ -131,7 +131,7 @@ stanie siê zbyt mocna.
 Summary:	Tux-in-a-Spaceship screen saver
 Summary(pl):	Wygaszacz ekranu Tux-w-statku-kosmicznym
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdebase-screensavers >= %{version}
 
 %description ktux
 Tux-in-a-Spaceship screen saver.
@@ -143,9 +143,7 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 Summary:	Kicker applet that will display the current weather outside
 Summary(pl):	Applet kickera wy¶wietlaj±cy pogodê na zewn±trz
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
-Provides:	kweather
-Obsoletes:	kweather
+Requires:	konqueror >= %{version}
 Obsoletes:	kdetoys
 
 %description kweather
@@ -158,7 +156,7 @@ Applet kickera wy¶wietlaj±cy pogodê na zewn±trz.
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdebase >= %{version}
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
@@ -171,7 +169,7 @@ Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 Summary:	World Wide Watch applet
 Summary(pl):	Applet World Wide Watch
 Group:		X11/Applications
-Requires:	kdelibs >= %{version}
+Requires:	kdebase-kicker >= %{version}
 
 %description ww
 World Wide Watch applet.
@@ -179,17 +177,6 @@ World Wide Watch applet.
 %description ww -l pl
 Applet World Wide Watch.
 
-%package devel
-Summary:	Header files for kdetoys
-Summary(pl):	Pliki nag³ówkowe dla kdetoys
-Group:		X11/Development/Libraries
-Requires:	kdelibs >= %{version}
-
-%description devel
-Header files for kdetoys.
-
-%description devel -l pl
-Pliki nag³ówkowe dla kdetoys.
 
 %prep
 %setup -q -n %{name}-%{_snap}
