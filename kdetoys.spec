@@ -1,7 +1,7 @@
 
 %define         _state          snapshots
-%define         _ver		3.1.91
-%define         _snap		030918
+%define         _ver		3.1.92
+%define         _snap		030930
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -16,7 +16,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	500098f390e09b92fabe5de9bda44bec
+# Source0-md5:	8eb021809e480b76908ddd2f6c20978c
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -56,7 +56,7 @@ Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
 Summary:	Header files for kdetoys
 Summary(pl):	Pliki nag³ówkowe dla kdetoys
 Group:		X11/Development/Libraries
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 9:%{version}
 
 %description devel
 Header files for kdetoys.
@@ -68,7 +68,7 @@ Pliki nag³ówkowe dla kdetoys.
 Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
-Requires:	kdebase-kicker >= %{version}
+Requires:	kdebase-kicker >= 9:%{version}
 
 %description amor
 Amusing Misuse Of Resources put's comic figures above your windows.
@@ -81,7 +81,7 @@ z komiksów nad okienkami.
 Summary:	Order 15 pieces in a 4x4 square by moving them
 Summary(pl):	Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4
 Group:		X11/Applications
-Requires:	kdebase-kicker >= %{version}
+Requires:	kdebase-kicker >= 9:%{version}
 
 %description fifteen
 Order 15 pieces in a 4x4 square by moving them.
@@ -93,7 +93,7 @@ Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4.
 Summary:	System tray applet showing the moon phase
 Summary(pl):	Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
 Group:		X11/Applications
-Requires:	kdebase-kicker >= %{version}
+Requires:	kdebase-kicker >= 9:%{version}
 
 %description kmoon
 system tray applet showing the moon phase.
@@ -105,7 +105,7 @@ Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
 Summary:	Mouse movement meter
 Summary(pl):	Licznik dystansu pokonanego przez mysz
 Group:		X11/Applications
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 
 %description kodo
 Mouse movement meter.
@@ -117,7 +117,7 @@ Licznik dystansu pokonanego przez mysz.
 Summary:	System tray applet that makes sure your tea doesn't get too strong
 Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie
 Group:		X11/Applications
-Requires:	kdebase-kicker >= %{version}
+Requires:	kdebase-kicker >= 9:%{version}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
@@ -130,7 +130,7 @@ stanie siê zbyt mocna.
 Summary:	Tux-in-a-Spaceship screen saver
 Summary(pl):	Wygaszacz ekranu Tux-w-statku-kosmicznym
 Group:		X11/Applications
-Requires:	kdebase-screensavers >= %{version}
+Requires:	kdebase-screensavers >= 9:%{version}
 
 %description ktux
 Tux-in-a-Spaceship screen saver.
@@ -155,7 +155,7 @@ Applet kickera wy¶wietlaj±cy pogodê na zewn±trz.
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
-Requires:	kdebase-kicker >= %{version}
+Requires:	kdebase-kicker >= 9:%{version}
 Requires:	konqueror >= %{version}
 
 %description kworldclock
@@ -169,7 +169,7 @@ Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 Summary:	World Wide Watch applet
 Summary(pl):	Applet World Wide Watch
 Group:		X11/Applications
-Requires:	kdebase-kicker >= %{version}
+Requires:	kdebase-kicker >= 9:%{version}
 
 %description ww
 World Wide Watch applet.
