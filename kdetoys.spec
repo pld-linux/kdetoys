@@ -240,10 +240,11 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 %find_lang	ktux 		--with-kde
 %find_lang	kweather	--with-kde
 %find_lang	kworldclock	--with-kde
+
 # does not build
 #%find_lang	keyesapplet	--with-kde
 
-# propably should be in other packages - kde-i18n to fix:
+# probably should be in other packages - kde-i18n to fix:
 #%find_lang	kscoreapplet	--with-kde
 
 install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
