@@ -12,7 +12,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	2
+Release:	3
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -215,6 +215,11 @@ Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 %patch0 -p1
 
 echo "KDE_OPTIONS = nofinal" >> kmoon/Makefile.am
+
+%{__sed} -i -e 's/Terminal=0/Terminal=false/' \
+	amor/amor.desktop \
+	kodo/kodo.desktop \
+	kteatime/kteatime.desktop
 
 %build
 cp %{_datadir}/automake/config.sub admin
