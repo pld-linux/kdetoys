@@ -1,6 +1,6 @@
 
 %define         _state          unstable                                        
-%define         _kdever         kde-3.1-beta1
+%define         _kdever         kde-3.1-rc2
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -8,7 +8,7 @@ Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
-Version:	3.0.8
+Version:	3.0.98
 Release:	1
 Epoch:		8
 License:	GPL
@@ -57,7 +57,7 @@ Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
 Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description amor
 Amusing Misuse Of Resources put's comic figures above your windows.
@@ -70,7 +70,7 @@ z komiksów nad okienkami.
 Summary:	Order 15 pieces in a 4x4 square by moving them
 Summary(pl):	Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description fifteen
 Order 15 pieces in a 4x4 square by moving them.
@@ -82,7 +82,7 @@ Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4.
 Summary:	Displays aphorisms
 Summary(pl):	Wy¶wietlanie foryzmy
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description kaphorism
 Displays aphorisms.
@@ -94,7 +94,7 @@ Wy¶wietla aforyzmy.
 Summary:	System tray applet showing the moon phase
 Summary(pl):	Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description kmoon
 system tray applet showing the moon phase.
@@ -106,7 +106,7 @@ Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
 Summary:	Mouse movement meter.
 Summary(pl):	Licznik dystansu pokonanego przez mysz.
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description kodo
 Mouse movement meter.
@@ -118,7 +118,7 @@ Licznik dystansu pokonanego przez mysz.
 Summary:	System tray applet that makes sure your tea doesn't get too strong
 Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie.
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
@@ -131,7 +131,7 @@ stanie siê zbyt mocna..
 Summary:	Tux-in-a-Spaceship screen saver
 Summary(pl):	Wygaszacz ekranu Tux-w-statku-kosmicznym
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description ktux
 Tux-in-a-Spaceship screen saver.
@@ -143,7 +143,7 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 Summary:	Kicker applet that will display the current weather outside
 Summary(pl):	Applet kickera wy¶wietlaj±cy pogodê na zewn±trz
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 Provides:	kweather
 Obsoletes:	kweather
 
@@ -157,7 +157,7 @@ Applet kickera wy¶wietlaj±cy pogodê na zewn±trz.
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
@@ -170,7 +170,7 @@ Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 Summary:	World Wide Watch applet
 Summary(pl):	Applet World Wide Watch
 Group:		X11/Applications
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description ww
 World Wide Watch applet.
@@ -182,7 +182,7 @@ Applet World Wide Watch.
 Summary:	Header files for kdetoys
 Summary(pl):	Pliki nag³ówkowe dla kdetoys
 Group:		X11/Development/Libraries
-Requires:	kdelibs = %{version}
+Requires:	kdelibs >= %{version}
 
 %description devel
 Header files for kdetoys.
@@ -222,7 +222,7 @@ mv $RPM_BUILD_ROOT%{_applnkdir}/{Toys,Amusements}
 %find_lang kmoon		--with-kde
 %find_lang kodo			--with-kde
 %find_lang kteatime		--with-kde
-%find_lang kscore		--with-kde
+#%find_lang kscore		--with-kde
 #%find_lang ktux 		--with-kde
 %find_lang kweather		--with-kde
 %find_lang kworldclock		--with-kde
