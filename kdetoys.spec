@@ -238,9 +238,9 @@ export UNSERMAKE=%{_datadir}/unsermake/unsermake
 	--disable-rpath \
 	--enable-final \
 	--with-qt-libraries=%{_libdir} \
-	%if "%{_lib}" == "lib64"
+%if "%{_lib}" == "lib64"
 	--enable-libsuffix=64 \
-	%endif
+%endif
 	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full}
 
 %{__make}
