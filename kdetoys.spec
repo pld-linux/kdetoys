@@ -132,6 +132,8 @@ Summary:	Kicker applet that will display the current weather outside
 Summary(pl):	Applet kickera wy¶wietlaj±cy pogodê na zewn±trz
 Group:		X11/Applications
 Requires:	kdelibs = %{version}
+Provides:	kweather
+Obsoletes:	kweather
 
 %description kweather
 Kicker applet that will display the current weather outside.
