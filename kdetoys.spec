@@ -1,6 +1,6 @@
 
 %define         _state          unstable                                        
-%define         _kdever         kde-3.1-rc2
+%define         _kdever         kde-3.1-rc3
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -8,7 +8,7 @@ Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
-Version:	3.0.98
+Version:	3.0.99
 Release:	1
 Epoch:		8
 License:	GPL
@@ -234,11 +234,6 @@ mv $RPM_BUILD_ROOT%{_applnkdir}/{Toys,Amusements}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-# On this time no idea to do with these
-%files -f kscore.lang
-%defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/reportview
-
 %files amor -f amor.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/amor
@@ -293,6 +288,7 @@ rm -rf $RPM_BUILD_ROOT
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kweatherservice
+%attr(0755,root,root) %{_bindir}/reportview
 %attr(0755,root,root) %{_libdir}/kde3/weather_*
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/services/kweatherservice.desktop
