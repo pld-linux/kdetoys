@@ -1,0 +1,25 @@
+diff -urN -x CVS kdetoys.orig/kweather/reportview.cpp kdetoys/kweather/reportview.cpp
+--- kdetoys.orig/kweather/reportview.cpp	Sat Jul  3 19:35:41 2004
++++ kdetoys/kweather/reportview.cpp	Mon Aug 23 11:15:29 2004
+@@ -24,6 +24,7 @@
+ 
+ #include <qvbox.h>
+ #include <qpixmap.h>
++#include <qapplication.h>
+ 
+ #include "reportview.h"
+ #include "weatherservice_stub.h"
+@@ -120,9 +121,10 @@
+     .arg(hlColor).arg(hlTextColor).arg(textColor) +
+     QString("div.headerMsg { background-color: %1; color: %2; border-bottom: solid %3 1px; "
+     "border-left: solid %4 1px; border-right: solid %5 1px; margin-bottom: 1em; padding: 2px; }\n")
+-    .arg(bgColor).arg(textColor).arg(textColor).arg(textColor).arg(textColor) +
+-    "</style><title></title></head><body>"
+-    "<div class=\"headerTitle\"><b>" + i18n( "Weather Report - %1" ).arg( locationName ) + "</b></div>\n" +
++    .arg(bgColor).arg(textColor).arg(textColor).arg(textColor).arg(textColor) +    
++    QString("</style><title></title></head><body dir=\"%1\">").arg( QApplication::reverseLayout()?"rtl":"ltr") + 
++    "<div class=\"headerTitle\"><b>" + i18n( "Weather Report - %1" ).arg( locationName ) +        
++    "</b></div>\n" +    
+     QString("<div class=\"headerMsg\"><b>" + i18n( "Last updated on %1" ) + "</b></div>\n"
+     "<table><tr><td width=\"60\" style=\"text-align: center; border: dotted %2 1px;\">"
+     "<img width=\"64\" height=\"64\" src=\"%3\" /></td>"
