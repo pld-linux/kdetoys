@@ -208,13 +208,16 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 %find_lang amor		--with-kde
 %find_lang kaphorism	--with-kde
 %find_lang kfifteenapplet --with-kde
-%find_lang kfortune	--with-kde
 %find_lang kmoon	--with-kde
 %find_lang kodo		--with-kde
 %find_lang kteatime	--with-kde
 %find_lang ktux 	--with-kde
 %find_lang kweather	--with-kde
 %find_lang kworldclock	--with-kde
+
+# propably should be in other packages - kde-i18n to fix:
+%find_lang kfortune	--with-kde
+%find_lang kscoreapplet	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
