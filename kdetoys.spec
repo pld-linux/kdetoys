@@ -1,20 +1,23 @@
+
+%define         _state          unstable                                        
+%define         _kdever         kde-3.1-beta1
+
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
 Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
-Version:	3.0.3
-Release:	2
+Version:	3.0.8
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
 # generated from kde-i18n
-Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+#Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 Patch0:		%{name}-applets-no-version.patch
 Patch1:		%{name}-fix-amor.patch
-Patch2:		%{name}-fix-kmoon-mem-leak.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -85,7 +88,7 @@ Requires:	kdelibs = %{version}
 Displays aphorisms.
 
 %description kaphorism -l pl
-Wy¶wietlanie foryzmy.
+Wy¶wietla aforyzmy.
 
 %package kmoon
 Summary:	System tray applet showing the moon phase
@@ -191,7 +194,6 @@ Pliki nag³ówkowe dla kdetoys.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
@@ -212,30 +214,30 @@ rm -rf $RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_applnkdir}/{Toys,Amusements}
 
-bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+#bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
-%find_lang amor		--with-kde
-%find_lang kaphorism	--with-kde
-%find_lang kfifteenapplet --with-kde
-%find_lang kmoon	--with-kde
-%find_lang kodo		--with-kde
-%find_lang kteatime	--with-kde
-%find_lang ktux 	--with-kde
-%find_lang kweather	--with-kde
-%find_lang kworldclock	--with-kde
+%find_lang amor			--with-kde
+%find_lang kaphorism		--with-kde
+#%find_lang kfifteenapplet 	--with-kde
+%find_lang kmoon		--with-kde
+%find_lang kodo			--with-kde
+%find_lang kteatime		--with-kde
+%find_lang kscore		--with-kde
+#%find_lang ktux 		--with-kde
+%find_lang kweather		--with-kde
+%find_lang kworldclock		--with-kde
 
 # propably should be in other packages - kde-i18n to fix:
-%find_lang kfortune	--with-kde
-%find_lang kscoreapplet	--with-kde
+#%find_lang kfortune	--with-kde
+#%find_lang kscoreapplet	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
-
-%files
+# On this time no idea to do with these
+%files -f kscore.lang
 %defattr(644,root,root,755)
+%attr(0755,root,root) %{_bindir}/reportview
 
 %files amor -f amor.lang
 %defattr(644,root,root,755)
@@ -246,7 +248,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Amusements/amor.desktop
 %{_pixmapsdir}/*/*/*/amor*
 
-%files fifteen -f kfifteenapplet.lang
+#%files fifteen -f kfifteenapplet.lang
+%files fifteen
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_libdir}/kde3/fifteen_*
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
@@ -275,10 +278,12 @@ rm -rf $RPM_BUILD_ROOT
 %files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/kteatime
+%{_datadir}/apps/kteatime
 %{_applnkdir}/Amusements/kteatime.desktop
 %{_pixmapsdir}/*/*/*/kteatime*
 
-%files ktux -f ktux.lang
+#%files ktux -f ktux.lang
+%files ktux
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
@@ -287,8 +292,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
+%attr(0755,root,root) %{_bindir}/kweatherservice
 %attr(0755,root,root) %{_libdir}/kde3/weather_*
 %{_datadir}/apps/kicker/applets/kweather.desktop
+%{_datadir}/services/kweatherservice.desktop
 %{_datadir}/apps/kweather
 
 %files kworldclock -f kworldclock.lang
