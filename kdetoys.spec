@@ -800,7 +800,6 @@ Pliki umiêdzynarodawiaj±ce dla fifteen.
 Summary:	Common internationalization and localization files for kdetoys
 Summary(pl):	Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdetoys
 Group:	X11/Applications
-Requires:	%{name}-kdetoys = %{epoch}:%{version}-%{release}
 Obsoletes:	kde-i18n-Affrikaans
 Obsoletes:	kde-i18n-Afrikaans
 Obsoletes:	kde-i18n-Arabic
