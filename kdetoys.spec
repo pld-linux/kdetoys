@@ -1,7 +1,6 @@
 
 %define		_state		stable
-%define		_ver		3.2.1
-##%define		_snap		040110
+%define		_ver		3.2.2
 #
 # Conditional build:
 %bcond_without	i18n	# don't build i18n subpackages
@@ -19,10 +18,10 @@ License:	GPL
 Group:		X11/Applications/Graphics
 ####Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://download.kde.org/%{_state}/%{_ver}/src/%{name}-%{_ver}.tar.bz2
-# Source0-md5:	217c8c2ddb4040abe13a719d6b18e807
+# Source0-md5:	8db947ef275b7eb255a4448baca419d9
 %if %{with i18n}
 Source1:	kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	79937c7a6fa9cfcfa7a3ed2de9e21341
+# Source1-md5:	ef679e6c7b8dcfb7efc929e92cd1c22f
 %endif
 Patch0:		%{name}-3.2branch.diff
 Patch1:		%{name}-fix-amor.patch
