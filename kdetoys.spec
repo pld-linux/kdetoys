@@ -12,7 +12,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1
+Release:	2
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -152,7 +152,7 @@ Licznik dystansu pokonanego przez mysz.
 Summary:	System tray applet that makes sure your tea doesn't get too strong
 Summary(pl):	Aplet zasobnika systemowego przypominaj±cy o herbacie
 Group:		X11/Applications
-Requires:	kdebase-kicker >= %{_minbaseevr}
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
