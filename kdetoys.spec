@@ -9,6 +9,7 @@ Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.bz2
 # generated from kde-i18n
 Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+Patch0:		%{name}-applets-no-version.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -175,6 +176,7 @@ Pliki nag³ówkowe dla kdetoys.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
@@ -223,8 +225,7 @@ rm -rf $RPM_BUILD_ROOT
 %files amor -f amor.lang
 %defattr(644,root,root,755)
 %attr(0755,root,root) %{_bindir}/amor
-%attr(0755,root,root) %{_libdir}/kde3/eyes_*.la
-%attr(0755,root,root) %{_libdir}/kde3/eyes_*.so.*.*.*
+%attr(0755,root,root) %{_libdir}/kde3/eyes_*
 %{_datadir}/apps/amor
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
 %{_applnkdir}/Amusements/amor.desktop
@@ -232,8 +233,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files fifteen -f kfifteenapplet.lang
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_libdir}/kde3/fifteen_*.la
-%attr(0755,root,root) %{_libdir}/kde3/fifteen_*.so.*.*.*
+%attr(0755,root,root) %{_libdir}/kde3/fifteen_*
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
 %files kaphorism -f kaphorism.lang
@@ -272,8 +272,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_libdir}/kde3/weather_*.la
-%attr(0755,root,root) %{_libdir}/kde3/weather_*.so.*.*.*
+%attr(0755,root,root) %{_libdir}/kde3/weather_*
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/apps/kweather
 
@@ -287,14 +286,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files ww
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_libdir}/kde3/ww_*.la
-%attr(0755,root,root) %{_libdir}/kde3/ww_*.so.*.*.*
+%attr(0755,root,root) %{_libdir}/kde3/ww_*
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
-%attr(0755,root,root) %{_libdir}/kde3/fifteen_*.so
-%attr(0755,root,root) %{_libdir}/kde3/eyes_*.so
-%attr(0755,root,root) %{_libdir}/kde3/weather_*.so
-%attr(0755,root,root) %{_libdir}/kde3/ww_*.so
