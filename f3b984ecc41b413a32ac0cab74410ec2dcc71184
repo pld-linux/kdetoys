@@ -1,0 +1,4 @@
+- Separated eyes applet
+- Amor no longer needs kdebase-desktop
+- Kweather requires kdebase-desktop at least
+- Release 2
