@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.2.0	
-%define		_snap		040216
+%define		_snap		040225
 #
 # Conditional build:
 %bcond_with i18n	# w/wo 18n subpackages
