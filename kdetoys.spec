@@ -1,6 +1,6 @@
 
 %define         _state          unstable                                        
-%define         _kdever         kde-3.1-rc5
+%define         _kdever         kde-3.1-rc7
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -9,15 +9,14 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	3.1
-Release:	2
+Release:	3
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
 # generated from kde-i18n
 #Source1:	kde-i18n-%{name}-%{version}.tar.bz2
-Patch0:		%{name}-applets-no-version.patch
-Patch1:		%{name}-fix-amor.patch
+Patch0:		%{name}-fix-amor.patch
 Icon:		kde-icon.xpm
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -29,9 +28,9 @@ Prereq:		/sbin/ldconfig
 Obsoletes:	amor
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 %define		_htmldir	/usr/share/doc/kde/HTML
-%define		_mandir		%{_prefix}/man
+
+%define		no_install_post_chrpath		1
 
 %description
 The kdetoys package includes various toys for the K Desktop
@@ -194,9 +193,9 @@ Pliki nag³ówkowe dla kdetoys.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
+kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
