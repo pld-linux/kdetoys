@@ -12,6 +12,7 @@ Patch1:		%{name}-2.2-cvsfixes.patch
 Icon:		kde-icon.xpm
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Prereq:		/sbin/ldconfig
+Obsoletes:	amor
 BuildRequires:	kdelibs-devel >= 2.2
 
 %define		_prefix		/usr/X11R6
