@@ -21,7 +21,7 @@ Group:		X11/Applications/Graphics
 Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
 # Source0-md5:	b9fdd2b51a25501322e3dd3301760a41
 %if %{with i18n}
-Source1:        http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
+Source1:	http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
 # Source1-md5:	fa44500a6aa6417b45433ef54ac0fd64
 %endif
 Patch0:		%{name}-fix-amor.patch
@@ -354,7 +354,7 @@ install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 if [ -f "%{SOURCE1}" ] ; then
 	bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 	for f in $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/*.mo; do
-	if [ "`file $f | sed -e 's/.*,//' -e 's/message.*//'`" -le 1 ] ; then
+		if [ "`file $f | sed -e 's/.*,//' -e 's/message.*//'`" -le 1 ] ; then
 			rm -f $f
 		fi
 	done
