@@ -220,6 +220,11 @@ echo "KDE_OPTIONS = nofinal" >> kmoon/Makefile.am
 	amor/amor.desktop \
 	kodo/kodo.desktop \
 	kteatime/kteatime.desktop
+for f in `find . -name \*.desktop`; do
+	if grep -q '^Categories=.*[^;]$' $f; then
+		sed -i -e 's/\(^Categories=.*$\)/\1;/' $f
+	fi
+done
 
 %build
 cp %{_datadir}/automake/config.sub admin
