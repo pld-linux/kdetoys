@@ -1,5 +1,10 @@
-%define		_state		stable
-%define		_ver		3.2.3
+
+%define		_state		unstable
+%define		_ver		3.3.0
+%define		_snap		rc2
+
+%define		_minlibsevr	9:3.3.0
+%define		_minbaseevr	9:3.3.0
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -8,21 +13,20 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	%{_ver}
-Release:	4
+Release:	0.%{_snap}.1
 Epoch:		9
 License:	GPL
-Group:		X11/Amusements
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	22bb5193eaaea38a7eb9a16d935af20f
-#Source0:	http://download.kde.org/%{_state}/%{_ver}/src/%{name}-%{_ver}.tar.bz2
-#Patch100:	%{name}-branch.diff
-Patch0:		%{name}-screensavers.patch
+Group:		X11/Applications/Graphics
 Icon:		kde-toys.xpm
+# Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.pld-linux.org/software/kde/%{name}-%{_ver}-%{_snap}.tar.bz2
+# Source0-md5:	803d3441bb1452b915ea36942362e405
+Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	kdebase-devel >= 9:%{version}
+BuildRequires:	kdebase-devel >= %{_minbaseevr}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
@@ -55,7 +59,7 @@ Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
 Summary:	Header files for kdetoys
 Summary(pl):	Pliki nag³ówkowe dla kdetoys
 Group:		X11/Development/Libraries
-Requires:	kdelibs-devel >= 9:%{version}
+Requires:	kdelibs-devel >= %{_minlibsevr}
 
 %description devel
 Header files for kdetoys.
@@ -66,9 +70,8 @@ Pliki nag³ówkowe dla kdetoys.
 %package amor
 Summary:	Comic figures above your windows
 Summary(pl):	Postacie z komiksów nad okienkami
-Group:		X11/Amusements
-Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	amor
+Group:		X11/Applications
+Requires:	kdebase-core >= %{_minbaseevr}
 
 %description amor
 AMOR is an acronym which stands for Amusing Misuse of Resources. It is
@@ -96,8 +99,8 @@ z KDE, ale nie by³o to testowane.
 %package eyes
 Summary:	An xeyes KDE clone
 Summary(pl):	Klon xeyes dla KDE
-Group:		X11/Amusements
-Requires:	kdebase-desktop >= 9:%{version}
+Group:		X11/Applications
+Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys-amor < 9:3.1.93.031105-2
 
 %description eyes
@@ -109,8 +112,8 @@ Klon xeyes dla KDE.
 %package fifteen
 Summary:	A game: order 15 pieces in a 4x4 square by moving them
 Summary(pl):	Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu 4x4
-Group:		X11/Amusements
-Requires:	kdebase-desktop >= 9:%{version}
+Group:		X11/Applications
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description fifteen
 Game: Order 15 pieces in a 4x4 square by moving them.
@@ -122,8 +125,8 @@ Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu
 %package kmoon
 Summary:	System tray applet showing the moon phase
 Summary(pl):	Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
-Group:		X11/Amusements
-Requires:	kdebase-desktop >= 9:%{version}
+Group:		X11/Applications
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description kmoon
 System tray applet showing the current moon phase.
@@ -134,8 +137,8 @@ Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
 %package kodo
 Summary:	Mouse movement meter
 Summary(pl):	Licznik dystansu pokonanego przez mysz
-Group:		X11/Amusements
-Requires:	kdebase-core >= 9:%{version}
+Group:		X11/Applications
+Requires:	kdebase-core >= %{_minbaseevr}
 
 %description kodo
 Mouse movement and mileage meter.
@@ -146,8 +149,8 @@ Licznik dystansu pokonanego przez mysz.
 %package kteatime
 Summary:	System tray applet that makes sure your tea doesn't get too strong
 Summary(pl):	Aplet zasobnika systemowego przypominaj±cy o herbacie
-Group:		X11/Amusements
-Requires:	kdebase-desktop >= 9:%{version}
+Group:		X11/Applications
+Requires:	kdebase-kicker >= %{_minbaseevr}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
@@ -159,8 +162,8 @@ mocna.
 %package ktux
 Summary:	Tux-in-a-Spaceship screen saver
 Summary(pl):	Wygaszacz ekranu Tux-w-statku-kosmicznym
-Group:		X11/Amusements
-Requires:	kdebase-screensavers >= 9:%{version}
+Group:		X11/Applications
+Requires:	kdebase-screensavers >= %{_minbaseevr}
 
 %description ktux
 Tux-in-a-Spaceship screen saver.
@@ -172,7 +175,7 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 Summary:	Kicker applet that will display the current weather outside
 Summary(pl):	Aplet kickera wy¶wietlaj±cy aktualn± pogodê na zewn±trz
 Group:		X11/Applications
-Requires:	kdebase-desktop >= 9:%{version}
+Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys
 
 %description kweather
@@ -193,8 +196,7 @@ Konquerora oraz stron± podsumowuj±c± Kontacta.
 Summary:	Daylight area on the world globe
 Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
 Group:		X11/Applications
-Requires:	kdebase-desktop >= 9:%{version}
-Requires:	konqueror >= 9:%{version}
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description kworldclock
 Application and kicker applet showing daylight area on the world
@@ -206,8 +208,8 @@ Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 %package ww
 Summary:	World Wide Watch applet
 Summary(pl):	Aplet World Wide Watch
-Group:		X11/Amusements
-Requires:	kdebase-desktop >= 9:%{version}
+Group:		X11/Applications
+Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description ww
 World Wide Watch applet.
@@ -219,26 +221,24 @@ Aplet World Wide Watch.
 %setup -q
 %patch0 -p1
 
-for f in `find . -name *.desktop | xargs grep -l '^Terminal=0'`; do
-	%{__sed} -i -e 's/^Terminal=0/Terminal=false/' $f
-done
+echo "KDE_OPTIONS = nofinal" >> kmoon/Makefile.am
 
 %build
-cp -f %{_datadir}/automake/config.sub admin
-export kde_htmldir=%{_kdedocdir}
-export kde_libs_htmldir=%{_kdedocdir}
-export UNSERMAKE=%{_datadir}/unsermake/unsermake
+cp /usr/share/automake/config.sub admin
+
+export UNSERMAKE=/usr/share/unsermake/unsermake
+
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
 	--disable-rpath \
+	--enable-final \
 	--with-qt-libraries=%{_libdir} \
-	--enable-final
 
 %{__make}
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT *.lang
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -249,6 +249,13 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
+%find_lang amor		--with-kde
+%find_lang kmoon	--with-kde
+%find_lang kodo		--with-kde
+%find_lang kteatime	--with-kde
+%find_lang kweather	--with-kde
+%find_lang kworldclock	--with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -256,7 +263,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/*.h
 
-%files amor
+%files amor -f amor.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/amor
 %{_datadir}/apps/amor
@@ -277,16 +284,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
-%files kmoon
+%files kmoon -f kmoon.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kmoon
+%{_libdir}/kde3/kmoon_panelapplet.la
+%attr(755,root,root) %{_libdir}/kde3/kmoon_panelapplet.so
+%{_datadir}/apps/kicker/applets/kmoonapplet.desktop
 %{_datadir}/apps/kmoon
-%{_desktopdir}/kde/kmoon.desktop
 %{_iconsdir}/*/*/*/kmoon*
-%{_mandir}/man1/kmoon.1*
+#%{_mandir}/man1/kmoon.1*
 %{_kdedocdir}/en/kmoon
 
-%files kodo
+%files kodo -f kodo.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kodo
 %{_datadir}/apps/kodo
@@ -295,7 +303,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/kodo.1*
 %{_kdedocdir}/en/kodo
 
-%files kteatime
+%files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kteatime
 %{_datadir}/apps/kteatime
@@ -311,7 +319,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kscreensaver/ktux.desktop
 %{_mandir}/man1/ktux.1*
 
-%files kweather
+%files kweather -f kweather.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kweatherreport
 %attr(755,root,root) %{_bindir}/kweatherservice
@@ -326,7 +334,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/kde3/weather_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/weather_panelapplet.so
 %{_datadir}/apps/kicker/applets/kweather.desktop
-%{_datadir}/apps/kweatherservice/stations.dat
+%{_datadir}/apps/kweatherservice
 %{_datadir}/services/kcmweather.desktop
 %{_datadir}/services/kcmweatherservice.desktop
 %{_datadir}/services/kweatherservice.desktop
@@ -336,7 +344,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/kweatherservice.1*
 %{_kdedocdir}/en/kweather
 
-%files kworldclock
+%files kworldclock -f kworldclock.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kworldclock
 %{_datadir}/apps/kworldclock
