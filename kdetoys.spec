@@ -9,13 +9,13 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
 Version:	%{_ver}
-Release:	2
+Release:	2.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 # generated from kde-i18n
-#Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -223,7 +223,7 @@ rm -rf $RPM_BUILD_ROOT
 ALD=$RPM_BUILD_ROOT%{_applnkdir}
 mv $ALD/{Toys,Amusements}
 
-#bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
 %find_lang amor			--with-kde
 %find_lang kaphorism		--with-kde
@@ -237,7 +237,7 @@ mv $ALD/{Toys,Amusements}
 %find_lang kworldclock		--with-kde
 
 # propably should be in other packages - kde-i18n to fix:
-#%find_lang kfortune	--with-kde
+%find_lang kfortune	--with-kde
 #%find_lang kscoreapplet	--with-kde
 
 %clean
