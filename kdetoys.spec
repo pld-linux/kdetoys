@@ -6,9 +6,6 @@ Release:	5
 Epoch:		7
 License:	GPL
 Group:		X11/Applications/Graphics
-Group(de):	X11/Applikationen/Grafik
-Group(pl):	X11/Aplikacje/Grafika
-Group(pt):	X11/Aplicações/Gráficos
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-2.2-kworldclock.patch
 Patch1:		%{name}-2.2-cvsfixes.patch
