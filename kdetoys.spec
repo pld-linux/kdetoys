@@ -1,7 +1,7 @@
 
-%define		_state		snapshots
-%define		_ver		3.1.94
-%define		_snap		040110
+%define		_state		stable
+%define		_ver		3.2.0	
+##%define		_snap		040110
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -9,14 +9,14 @@ Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
-Version:	%{_ver}.%{_snap}
+Version:	%{_ver}
 Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
-#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	f434787e0b68bf65bfe629e2de5ecb63	
+####Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
+# Source0-md5:	80d5a03ac950a7fac10bacbb122db11f
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -190,7 +190,7 @@ World Wide Watch applet.
 Applet World Wide Watch.
 
 %prep
-%setup -q -n %{name}-%{_snap}
+%setup -q
 #%patch0 -p1
 %patch1 -p1
 
