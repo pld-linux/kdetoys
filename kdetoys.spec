@@ -1,7 +1,7 @@
 
 %define         _state          snapshots
 %define         _ver		3.1.92
-%define         _snap		031006
+%define         _snap		031014
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -16,7 +16,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	62762e59893af38801012f27cabef8dc
+# Source0-md5:	4a8c5673e23c4c1f2369372556a8bc71
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
@@ -185,9 +185,8 @@ Applet World Wide Watch.
 
 %build
 
-for plik in `find ./ -name *.desktop` ; do
-	echo $plik
-	sed -i -e "s/\[nb\]/\[no\]/g" $plik
+for f in `find . -name *.desktop` ; do
+	sed -i 's/\[nb\]/\[no\]/g' $f
 done
 
 %{__make} -f admin/Makefile.common cvs
@@ -266,14 +265,21 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) %{_bindir}/kweatherservice
 %{_libdir}/libkdeinit_kweatherreport.la
 %attr(0755,root,root) %{_libdir}/libkdeinit_kweatherreport.so
+%{_libdir}/kde3/kcm_weather.la
+%attr(0755,root,root) %{_libdir}/kde3/kcm_weather.so
+%{_libdir}/kde3/kcm_weatherservice.la
+%attr(0755,root,root) %{_libdir}/kde3/kcm_weatherservice.so
 %{_libdir}/kde3/kweatherreport.la
 %attr(0755,root,root) %{_libdir}/kde3/kweatherreport.so
 %{_libdir}/kde3/weather_panelapplet.la
 %attr(0755,root,root) %{_libdir}/kde3/weather_panelapplet.so
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/apps/kweatherservice/stations.dat
+%{_datadir}/services/kcmweather.desktop
+%{_datadir}/services/kcmweatherservice.desktop
 %{_datadir}/services/kweatherservice.desktop
 %{_datadir}/apps/kweather
+%{_iconsdir}/*/*/apps/kweather.png
 
 %files kworldclock -f kworldclock.lang
 %defattr(644,root,root,755)
