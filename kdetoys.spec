@@ -24,7 +24,7 @@ Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
 Source1:	http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
 # Source1-md5:	fa44500a6aa6417b45433ef54ac0fd64
 %endif
-Patch0:         %{name}-3.2branch.diff
+Patch0:		%{name}-3.2branch.diff
 Patch1:		%{name}-fix-amor.patch
 Patch2:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
