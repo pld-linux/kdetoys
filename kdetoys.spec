@@ -2,9 +2,10 @@
 %define		_state		stable
 %define		_ver		3.2.0	
 ##%define		_snap		040110
-
-%bcond_without  i18n    # dont build i18n subpackage
-
+#
+# Conditional build:
+%bcond_without	i18n	# don't build i18n subpackages
+#
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
 Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
@@ -26,6 +27,7 @@ Source1:        http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{v
 Patch0:		%{name}-fix-amor.patch
 Patch1:		%{name}-screensavers.patch
 Icon:		kde-icon.xpm
+URL:		http://www.kde.org/
 BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdebase-devel >= 9:%{version}
@@ -96,20 +98,21 @@ An xeyes KDE clone.
 Klon xeyes dla KDE.
 
 %package fifteen
-Summary:	Order 15 pieces in a 4x4 square by moving them
-Summary(pl):	Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4
+Summary:	A game: order 15 pieces in a 4x4 square by moving them
+Summary(pl):	Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu 4x4
 Group:		X11/Applications
 Requires:	kdebase-kicker >= 9:%{version}
 
 %description fifteen
-Order 15 pieces in a 4x4 square by moving them.
+Game: Order 15 pieces in a 4x4 square by moving them.
 
 %description fifteen -l pl
-Uporz±dkuj 15 elementów przesuwaj±c sie w polu 4x4.
+Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu
+4x4.
 
 %package kmoon
 Summary:	System tray applet showing the moon phase
-Summary(pl):	Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
+Summary(pl):	Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
 Group:		X11/Applications
 Requires:	kdebase-kicker >= 9:%{version}
 
@@ -117,7 +120,7 @@ Requires:	kdebase-kicker >= 9:%{version}
 system tray applet showing the moon phase.
 
 %description kmoon -l pl
-Applet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
+Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
 
 %package kodo
 Summary:	Mouse movement meter
@@ -133,7 +136,7 @@ Licznik dystansu pokonanego przez mysz.
 
 %package kteatime
 Summary:	System tray applet that makes sure your tea doesn't get too strong
-Summary(pl):	Applet zasobika systemowego przypominaj±cy o herbacie
+Summary(pl):	Aplet zasobnika systemowego przypominaj±cy o herbacie
 Group:		X11/Applications
 Requires:	kdebase-kicker >= 9:%{version}
 
@@ -141,8 +144,8 @@ Requires:	kdebase-kicker >= 9:%{version}
 System tray applet that makes sure your tea doesn't get too strong.
 
 %description kteatime -l pl
-Applet zasobika systemowego, który upewnia siê, ¿e twoja herbata nie
-stanie siê zbyt mocna.
+Applet zasobnika systemowego pilnuj±cy ¿eby herbata nie sta³a siê zbyt
+mocna.
 
 %package ktux
 Summary:	Tux-in-a-Spaceship screen saver
@@ -158,7 +161,7 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 
 %package kweather
 Summary:	Kicker applet that will display the current weather outside
-Summary(pl):	Applet kickera wy¶wietlaj±cy pogodê na zewn±trz
+Summary(pl):	Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz
 Group:		X11/Applications
 Requires:	kdebase-kicker >= 9:%{version}
 Obsoletes:	kdetoys
@@ -167,7 +170,7 @@ Obsoletes:	kdetoys
 Kicker applet that will display the current weather outside.
 
 %description kweather -l pl
-Applet kickera wy¶wietlaj±cy pogodê na zewn±trz.
+Aplet kickera wy¶wietlaj±cy pogodê na zewn±trz.
 
 %package kworldclock
 Summary:	Daylight area on the world globe
@@ -181,11 +184,11 @@ Application and kicker applet showing daylight area on the world
 globe.
 
 %description kworldclock -l pl
-Aplikacja i applet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
+Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 
 %package ww
 Summary:	World Wide Watch applet
-Summary(pl):	Applet World Wide Watch
+Summary(pl):	Aplet World Wide Watch
 Group:		X11/Applications
 Requires:	kdebase-kicker >= 9:%{version}
 
@@ -193,13 +196,24 @@ Requires:	kdebase-kicker >= 9:%{version}
 World Wide Watch applet.
 
 %description ww -l pl
-Applet World Wide Watch.
+Aplet World Wide Watch.
 
+%package i18n
+Summary:	Common internationalization and localization files for kdetoys
+Summary(pl):	Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdetoys
+Group:		X11/Applications
+Requires:	kdelibs-i18n >= 9:%{version}
+
+%description i18n
+Common internationalization and localization files for kdetoys.
+
+%description i18n -l pl
+Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdetoys.
 
 %package amor-i18n
 Summary:	Internationalization and localization files for amor
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla amor
-Group:	X11/Applications
+Summary(pl):	Pliki umiêdzynarodawiaj±ce dla amora
+Group:		X11/Applications
 Requires:	%{name}-amor = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -207,13 +221,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description amor-i18n
 Internationalization and localization files for amor.
 
-%description -l pl amor-i18n
-Pliki umiêdzynarodawiaj±ce dla amor.
+%description amor-i18n -l pl
+Pliki umiêdzynarodawiaj±ce dla amora.
 
 %package kmoon-i18n
 Summary:	Internationalization and localization files for kmoon
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kmoon
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kmoon = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
@@ -221,13 +235,13 @@ Requires:	kdebase-kicker-i18n >= 9:%{version}
 %description kmoon-i18n
 Internationalization and localization files for kmoon.
 
-%description -l pl kmoon-i18n
+%description kmoon-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kmoon.
 
 %package kodo-i18n
 Summary:	Internationalization and localization files for kodo
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kodo
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kodo = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -235,13 +249,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kodo-i18n
 Internationalization and localization files for kodo.
 
-%description -l pl kodo-i18n
+%description kodo-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kodo.
 
 %package kteatime-i18n
 Summary:	Internationalization and localization files for kteatime
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kteatime
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kteatime = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
@@ -249,13 +263,13 @@ Requires:	kdebase-kicker-i18n >= 9:%{version}
 %description kteatime-i18n
 Internationalization and localization files for kteatime.
 
-%description -l pl kteatime-i18n
+%description kteatime-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kteatime.
 
 %package kweather-i18n
 Summary:	Internationalization and localization files for kweather
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kweather
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kweather = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
@@ -263,13 +277,13 @@ Requires:	kdebase-kicker-i18n >= 9:%{version}
 %description kweather-i18n
 Internationalization and localization files for kweather.
 
-%description -l pl kweather-i18n
+%description kweather-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kweather.
 
 %package kworldclock-i18n
 Summary:	Internationalization and localization files for kworldclock
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kworldclock
-Group:	X11/Applications
+Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kworldclocka
+Group:		X11/Applications
 Requires:	%{name}-kworldclock = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
@@ -278,13 +292,13 @@ Requires:	konqueror-i18n >= 9:%{version}
 %description kworldclock-i18n
 Internationalization and localization files for kworldclock.
 
-%description -l pl kworldclock-i18n
-Pliki umiêdzynarodawiaj±ce dla kworldclock.
+%description kworldclock-i18n -l pl
+Pliki umiêdzynarodawiaj±ce dla kworldclocka.
 
 %package ktux-i18n
 Summary:	Internationalization and localization files for ktux
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla ktux
-Group:	X11/Applications
+Summary(pl):	Pliki umiêdzynarodawiaj±ce dla ktuksa
+Group:		X11/Applications
 Requires:	%{name}-ktux = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-screensavers-i18n >= 9:%{version}
@@ -292,13 +306,13 @@ Requires:	kdebase-screensavers-i18n >= 9:%{version}
 %description ktux-i18n
 Internationalization and localization files for ktux.
 
-%description -l pl ktux-i18n
-Pliki umiêdzynarodawiaj±ce dla ktux.
+%description ktux-i18n -l pl
+Pliki umiêdzynarodawiaj±ce dla ktuksa.
 
 %package fifteen-i18n
 Summary:	Internationalization and localization files for fifteen
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla fifteen
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-fifteen = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-kicker-i18n >= 9:%{version}
@@ -306,20 +320,8 @@ Requires:	kdebase-kicker-i18n >= 9:%{version}
 %description fifteen-i18n
 Internationalization and localization files for fifteen.
 
-%description -l pl fifteen-i18n
+%description fifteen-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla fifteen.
-
-%package i18n
-Summary:	Common internationalization and localization files for kdetoys
-Summary(pl):	Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdetoys
-Group:	X11/Applications
-Requires:	kdelibs-i18n >= 9:%{version}
-
-%description i18n
-Common internationalization and localization files for kdetoys.
-
-%description -l pl i18n
-Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdetoys.
 
 %prep
 %setup -q
@@ -356,9 +358,7 @@ else
 	echo "No i18n sources found and building --with i18n. FIXIT!"
 	exit 1
 fi
-
 %endif
-	
 
 %find_lang amor			--with-kde
 %find_lang kmoon		--with-kde
@@ -387,12 +387,12 @@ for i in $files; do
 	grep -v apidocs $i.lang|grep -v en\/ > ${i}.lang.1
 	mv ${i}.lang.1 ${i}.lang
 done
-				
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with i18n}
+%files i18n -f desktop_kdetoys.lang
 %files amor-i18n -f amor.lang
 %files kmoon-i18n -f kmoon.lang
 %files kodo-i18n -f kodo.lang
@@ -401,16 +401,15 @@ rm -rf $RPM_BUILD_ROOT
 %files kworldclock-i18n -f kworldclock.lang
 %files fifteen-i18n -f kfifteenapplet.lang
 %files ktux-i18n -f ktux.lang
-%files i18n -f desktop_kdetoys.lang
 %endif
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/*
+%{_includedir}/*.h
 
 %files amor -f amor_en.lang
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/amor
+%attr(755,root,root) %{_bindir}/amor
 %{_datadir}/apps/amor
 %{_desktopdir}/kde/amor.desktop
 %{_iconsdir}/*/*/*/amor*
@@ -418,56 +417,56 @@ rm -rf $RPM_BUILD_ROOT
 %files eyes
 %defattr(644,root,root,755)
 %{_libdir}/kde3/eyes_panelapplet.la
-%attr(0755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
+%attr(755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
 
 %files fifteen
 %defattr(644,root,root,755)
 %{_libdir}/kde3/fifteen_panelapplet.la
-%attr(0755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
+%attr(755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
 %files kmoon -f kmoon_en.lang
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/kmoon
+%attr(755,root,root) %{_bindir}/kmoon
 %{_datadir}/apps/kmoon
 %{_desktopdir}/kde/kmoon.desktop
 %{_iconsdir}/*/*/*/kmoon*
 
 %files kodo -f kodo_en.lang
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/kodo
+%attr(755,root,root) %{_bindir}/kodo
 %{_datadir}/apps/kodo
 %{_desktopdir}/kde/kodo.desktop
 %{_iconsdir}/*/*/*/kodo*
 
 %files kteatime -f kteatime_en.lang
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/kteatime
+%attr(755,root,root) %{_bindir}/kteatime
 %{_datadir}/apps/kteatime
 %{_desktopdir}/kde/kteatime.desktop
 %{_iconsdir}/*/*/*/kteatime*
 
 %files ktux
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/ktux
+%attr(755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
 %{_datadir}/apps/kscreensaver/ktux.desktop
 
 %files kweather -f kweather_en.lang
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/kweatherreport
-%attr(0755,root,root) %{_bindir}/kweatherservice
+%attr(755,root,root) %{_bindir}/kweatherreport
+%attr(755,root,root) %{_bindir}/kweatherservice
 %{_libdir}/libkdeinit_kweatherreport.la
-%attr(0755,root,root) %{_libdir}/libkdeinit_kweatherreport.so
+%attr(755,root,root) %{_libdir}/libkdeinit_kweatherreport.so
 %{_libdir}/kde3/kcm_weather.la
-%attr(0755,root,root) %{_libdir}/kde3/kcm_weather.so
+%attr(755,root,root) %{_libdir}/kde3/kcm_weather.so
 %{_libdir}/kde3/kcm_weatherservice.la
-%attr(0755,root,root) %{_libdir}/kde3/kcm_weatherservice.so
+%attr(755,root,root) %{_libdir}/kde3/kcm_weatherservice.so
 %{_libdir}/kde3/kweatherreport.la
-%attr(0755,root,root) %{_libdir}/kde3/kweatherreport.so
+%attr(755,root,root) %{_libdir}/kde3/kweatherreport.so
 %{_libdir}/kde3/weather_panelapplet.la
-%attr(0755,root,root) %{_libdir}/kde3/weather_panelapplet.so
+%attr(755,root,root) %{_libdir}/kde3/weather_panelapplet.so
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/apps/kweatherservice/stations.dat
 %{_datadir}/services/kcmweather.desktop
@@ -478,7 +477,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kworldclock -f kworldclock_en.lang
 %defattr(644,root,root,755)
-%attr(0755,root,root) %{_bindir}/kworldclock
+%attr(755,root,root) %{_bindir}/kworldclock
 %{_datadir}/apps/kworldclock
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
 %{_desktopdir}/kde/kworldclock.desktop
@@ -487,5 +486,5 @@ rm -rf $RPM_BUILD_ROOT
 %files ww
 %defattr(644,root,root,755)
 %{_libdir}/kde3/ww_panelapplet.la
-%attr(0755,root,root) %{_libdir}/kde3/ww_panelapplet.so
+%attr(755,root,root) %{_libdir}/kde3/ww_panelapplet.so
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
