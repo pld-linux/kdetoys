@@ -1,10 +1,10 @@
 
 %define		_state		stable
-%define		_kdever		3.4.1
-%define		_ver		3.4.1
+%define		_kdever		3.4.2
+%define		_ver		3.4.2
 
-%define		_minlibsevr	9:3.4.1
-%define		_minbaseevr	9:3.4.1
+%define		_minlibsevr	9:3.4.2
+%define		_minbaseevr	9:3.4.2
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -13,13 +13,13 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE嚔赤殻會
 Name:		kdetoys
 Version:	%{_ver}
-Release:	1
+Release:	0.1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Icon:		kde-toys.xpm
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	8c9ad215fe076942bc9195eca5a9175f
+# Source0-md5:	86f954b4233937eb4cc7dd8f97bbe39f
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
