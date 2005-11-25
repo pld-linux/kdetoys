@@ -1,10 +1,10 @@
 
 %define		_state		stable
-%define		_kdever		3.4.3
-%define		_ver		3.4.3
+%define		_kdever		3.5
+%define		_ver		3.5.0
 
-%define		_minlibsevr	9:3.4.3
-%define		_minbaseevr	9:3.4.3
+%define		_minlibsevr	9:3.5.0
+%define		_minbaseevr	9:3.5.0
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -19,7 +19,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Icon:		kde-toys.xpm
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	1dae200dc1be8527a5f7dca690cbffc1
+# Source0-md5:	aebe4a9586728b37543bd515d35e76e1
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
@@ -321,6 +321,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ktux
 %{_datadir}/apps/ktux
 %{_datadir}/apps/kscreensaver/ktux.desktop
+%{_iconsdir}/*/*/*/ktux.*
 %{_mandir}/man1/ktux.1*
 
 %files kweather -f kweather.lang
