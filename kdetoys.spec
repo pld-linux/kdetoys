@@ -17,7 +17,6 @@ Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
-Icon:		kde-toys.xpm
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	aebe4a9586728b37543bd515d35e76e1
 #Patch100:	%{name}-branch.diff
