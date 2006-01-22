@@ -1,10 +1,10 @@
 
 %define		_state		stable
-%define		_kdever		3.5
-%define		_ver		3.5.0
+%define		_kdever		3.5.1
+%define		_ver		3.5.1
 
-%define		_minlibsevr	9:3.5.0
-%define		_minbaseevr	9:3.5.0
+%define		_minlibsevr	9:3.5.1
+%define		_minbaseevr	9:3.5.1
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -18,7 +18,7 @@ Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	aebe4a9586728b37543bd515d35e76e1
+# Source0-md5:	d98d4f30a8aa6d43b0af06421d4d6586
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
