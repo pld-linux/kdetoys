@@ -1,10 +1,10 @@
 
 %define		_state		stable
-%define		_kdever		3.5.1
-%define		_ver		3.5.1
+%define		_kdever		3.5.2
+%define		_ver		3.5.2
 
-%define		_minlibsevr	9:3.5.1
-%define		_minbaseevr	9:3.5.1
+%define		_minlibsevr	9:3.5.2
+%define		_minbaseevr	9:3.5.2
 
 Summary:	Toys for KDE
 Summary(ja):	KDEデスクトップ環境 - おもちゃ
@@ -18,7 +18,7 @@ Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	d98d4f30a8aa6d43b0af06421d4d6586
+# Source0-md5:	c698bc8724db937734280a2553a4b1d8
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
 URL:		http://www.kde.org/
@@ -252,9 +252,11 @@ rm -rf *.lang
 	kde_libs_htmldir=%{_kdedocdir} \
 	kde_htmldir=%{_kdedocdir}
 
+%if 0
 # Debian manpages
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%endif
 
 %find_lang amor		--with-kde
 %find_lang kmoon	--with-kde
@@ -276,7 +278,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/amor
 %{_desktopdir}/kde/amor.desktop
 %{_iconsdir}/*/*/*/amor*
-%{_mandir}/man1/amor.1*
+#%{_mandir}/man1/amor.1*
 
 %files eyes
 %defattr(644,root,root,755)
@@ -305,7 +307,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kodo
 %{_desktopdir}/kde/kodo.desktop
 %{_iconsdir}/*/*/*/kodo*
-%{_mandir}/man1/kodo.1*
+#%{_mandir}/man1/kodo.1*
 
 %files kteatime -f kteatime.lang
 %defattr(644,root,root,755)
@@ -313,7 +315,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kteatime
 %{_desktopdir}/kde/kteatime.desktop
 %{_iconsdir}/*/*/*/kteatime*
-%{_mandir}/man1/kteatime.1*
+#%{_mandir}/man1/kteatime.1*
 
 %files ktux
 %defattr(644,root,root,755)
@@ -321,7 +323,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/ktux
 %{_datadir}/apps/kscreensaver/ktux.desktop
 %{_iconsdir}/*/*/*/ktux.*
-%{_mandir}/man1/ktux.1*
+#%{_mandir}/man1/ktux.1*
 
 %files kweather -f kweather.lang
 %defattr(644,root,root,755)
@@ -344,8 +346,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/kweatherservice.desktop
 %{_datadir}/apps/kweather
 %{_iconsdir}/*/*/apps/kweather.png
-%{_mandir}/man1/kweatherreport.1*
-%{_mandir}/man1/kweatherservice.1*
+#%{_mandir}/man1/kweatherreport.1*
+#%{_mandir}/man1/kweatherservice.1*
 
 %files kworldclock -f kworldclock.lang
 %defattr(644,root,root,755)
@@ -354,7 +356,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
 %{_desktopdir}/kde/kworldclock.desktop
 %{_iconsdir}/*/*/*/kworldclock*
-%{_mandir}/man1/kworldclock.1*
+#%{_mandir}/man1/kworldclock.1*
 %{_libdir}/kde3/ww_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/ww_panelapplet.so
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
