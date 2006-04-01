@@ -1,10 +1,7 @@
 
 %define		_state		stable
-%define		_kdever		3.5.2
-%define		_ver		3.5.2
-
-%define		_minlibsevr	9:3.5.2
-%define		_minbaseevr	9:3.5.2
+%define		_minlibsevr	9:%{version}
+%define		_minbaseevr	9:%{version}
 
 Summary:	Toys for KDE
 Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
@@ -12,12 +9,12 @@ Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
-Version:	%{_ver}
+Version:	3.5.2
 Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	c698bc8724db937734280a2553a4b1d8
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
