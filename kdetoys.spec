@@ -18,6 +18,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.t
 # Source0-md5:	2b03fd068209cf324396b75334f39aba
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-screensavers.patch
+Patch1:		kde-ac260-lt.patch
 URL:		http://www.kde.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -207,6 +208,7 @@ Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 %setup -q
 #%%patch100 -p1
 %patch0 -p1
+%patch1 -p1
 
 for f in `find . -name \*.desktop`; do
 	if grep -q '\[ven\]' $f; then
