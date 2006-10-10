@@ -17,8 +17,9 @@ Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	2b03fd068209cf324396b75334f39aba
 #Patch100:	%{name}-branch.diff
-Patch0:		%{name}-screensavers.patch
-Patch1:		kde-ac260-lt.patch
+Patch0:		kde-common-PLD.patch
+Patch1:		%{name}-screensavers.patch
+Patch2:		kde-ac260-lt.patch
 URL:		http://www.kde.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -209,6 +210,7 @@ Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 #%%patch100 -p1
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 for f in `find . -name \*.desktop`; do
 	if grep -q '\[ven\]' $f; then
