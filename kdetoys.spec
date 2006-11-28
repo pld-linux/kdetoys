@@ -33,6 +33,8 @@ BuildRequires:	zlib-devel
 BuildConflicts:	kdetoys-ww
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define         _noautoreq      libtool(.*)
+
 %description
 The kdetoys package includes various toys for the K Desktop
 Environment (KDE), including:
