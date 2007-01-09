@@ -10,7 +10,7 @@ Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
 Name:		kdetoys
 Version:	3.5.5
-Release:	1
+Release:	2
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -20,6 +20,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.t
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-screensavers.patch
 Patch2:		kde-ac260-lt.patch
+Patch3:		kde-am.patch
 URL:		http://www.kde.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -32,8 +33,6 @@ BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	zlib-devel
 BuildConflicts:	kdetoys-ww
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define         _noautoreq      libtool(.*)
 
 %description
 The kdetoys package includes various toys for the K Desktop
@@ -213,6 +212,7 @@ Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 for f in `find . -name \*.desktop`; do
 	if grep -q '\[ven\]' $f; then
@@ -244,6 +244,8 @@ rm -rf *.lang
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/kde3/*.la
+
 %find_lang amor		--with-kde
 %find_lang kmoon	--with-kde
 %find_lang kodo		--with-kde
@@ -257,6 +259,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*.h
+%{_libdir}/lib*.la
 
 %files amor -f amor.lang
 %defattr(644,root,root,755)
@@ -267,19 +270,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files eyes
 %defattr(644,root,root,755)
-%{_libdir}/kde3/eyes_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
 
 %files fifteen
 %defattr(644,root,root,755)
-%{_libdir}/kde3/fifteen_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
 %files kmoon -f kmoon.lang
 %defattr(644,root,root,755)
-%{_libdir}/kde3/kmoon_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/kmoon_panelapplet.so
 %{_datadir}/apps/kicker/applets/kmoonapplet.desktop
 %{_datadir}/apps/kmoon
@@ -310,15 +310,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kweatherreport
 %attr(755,root,root) %{_bindir}/kweatherservice
-%{_libdir}/libkdeinit_kweatherreport.la
 %attr(755,root,root) %{_libdir}/libkdeinit_kweatherreport.so
-%{_libdir}/kde3/kcm_weather.la
 %attr(755,root,root) %{_libdir}/kde3/kcm_weather.so
-%{_libdir}/kde3/kcm_weatherservice.la
 %attr(755,root,root) %{_libdir}/kde3/kcm_weatherservice.so
-%{_libdir}/kde3/kweatherreport.la
 %attr(755,root,root) %{_libdir}/kde3/kweatherreport.so
-%{_libdir}/kde3/weather_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/weather_panelapplet.so
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/apps/kweatherservice
@@ -335,6 +330,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
 %{_desktopdir}/kde/kworldclock.desktop
 %{_iconsdir}/*/*/*/kworldclock*
-%{_libdir}/kde3/ww_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/ww_panelapplet.so
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
