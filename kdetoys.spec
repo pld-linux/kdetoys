@@ -4,10 +4,10 @@
 %define		_minbaseevr	9:%{version}
 
 Summary:	Toys for KDE
-Summary(ja):	KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ - ¤ª¤â¤Á¤ã
-Summary(ko):	K µ¥½ºÅ©Å¾ È¯°æ - Àå³­°Å¸®
-Summary(pl):	Zabawki dla KDE
-Summary(zh_CN):	KDEÓéÀÖ³ÌÐò
+Summary(ja.UTF-8):   KDEãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ç’°å¢ƒ - ãŠã‚‚ã¡ã‚ƒ
+Summary(ko.UTF-8):   K ë°ìŠ¤í¬íƒ‘ í™˜ê²½ - ìž¥ë‚œê±°ë¦¬
+Summary(pl.UTF-8):   Zabawki dla KDE
+Summary(zh_CN.UTF-8):   KDEå¨±ä¹ç¨‹åº
 Name:		kdetoys
 Version:	3.5.6
 Release:	1
@@ -40,34 +40,34 @@ Environment (KDE), including:
 - kworldwatch - graphically displays the Earth's day and night
 - kodo - a mouse odometer which shows how far your mouse has traveled.
 
-%description -l ja
-KDE¥Ç¥¹¥¯¥È¥Ã¥×´Ä¶­ÍÑ¤Î¤ª¤â¤Á¤ã °Ê²¼¤Î¤è¤¦¤Ê¥Ñ¥Ã¥±¡¼¥¸¤¬Æþ¤Ã¤Æ¤¤¤Þ¤¹¡£
+%description -l ja.UTF-8
+KDEãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ç’°å¢ƒç”¨ã®ãŠã‚‚ã¡ã‚ƒ ä»¥ä¸‹ã®ã‚ˆã†ãªãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãŒå…¥ã£ã¦ã„ã¾ã™ã€‚
 
-- kmoon - ·îÎðÉ½¼¨¥Ä¡¼¥ë
-- kworldwatch - À¤³¦»þ·×
-- kodo - ¥Ç¥¹¥¯¥È¥Ã¥×¤ÎÂç¤­¤µ¤òÂ¬¤í¤¦
+- kmoon - æœˆé½¢è¡¨ç¤ºãƒ„ãƒ¼ãƒ«
+- kworldwatch - ä¸–ç•Œæ™‚è¨ˆ
+- kodo - ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã®å¤§ãã•ã‚’æ¸¬ã‚ã†
 
-%description -l pl
-Pakiet kdetoys zawiera ró¿ne zabawki dla KDE, w tym:
-- kmoon - wy¶wietlaj±cy fazy ksiê¿yca,
-- kworldwatch - pokazuj±cy graficznie dzieñ i noc,
-- kodo - licznik pokazuj±cy jak d³ug± drogê pokona³a mysz.
+%description -l pl.UTF-8
+Pakiet kdetoys zawiera rÃ³Å¼ne zabawki dla KDE, w tym:
+- kmoon - wyÅ›wietlajÄ…cy fazy ksiÄ™Å¼yca,
+- kworldwatch - pokazujÄ…cy graficznie dzieÅ„ i noc,
+- kodo - licznik pokazujÄ…cy jak dÅ‚ugÄ… drogÄ™ pokonaÅ‚a mysz.
 
 %package devel
 Summary:	Header files for kdetoys
-Summary(pl):	Pliki nag³ówkowe dla kdetoys
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe dla kdetoys
 Group:		X11/Development/Libraries
 Requires:	kdelibs-devel >= %{_minlibsevr}
 
 %description devel
 Header files for kdetoys.
 
-%description devel -l pl
-Pliki nag³ówkowe dla kdetoys.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe dla kdetoys.
 
 %package amor
 Summary:	Comic figures above your windows
-Summary(pl):	Postacie z komiksów nad okienkami
+Summary(pl.UTF-8):   Postacie z komiksÃ³w nad okienkami
 Group:		X11/Applications
 Requires:	kdebase-core >= %{_minbaseevr}
 
@@ -83,20 +83,20 @@ will only work from within KDE. It is possible that AMOR would work
 from within another KDE-compliant window manager, but has not been
 tested.
 
-%description amor -l pl
-AMOR to skrót od Amusing Misuse of Resources, czyli zabawne, acz
-niew³a¶ciwe wykorzystanie zasobów. Jest to animacja umieszczona nad
-aktywnym okienkiem. W domy¶lnej konfiguracji AMOR przyjmuje postaæ
-¿ó³tej plamki wykonuj±cej ró¿ne tricki. AMOR ma tak¿e wiele ró¿nych
-motywów zmieniaj±cych wygl±d i zachowanie animacji.
+%description amor -l pl.UTF-8
+AMOR to skrÃ³t od Amusing Misuse of Resources, czyli zabawne, acz
+niewÅ‚aÅ›ciwe wykorzystanie zasobÃ³w. Jest to animacja umieszczona nad
+aktywnym okienkiem. W domyÅ›lnej konfiguracji AMOR przyjmuje postaÄ‡
+Å¼Ã³Å‚tej plamki wykonujÄ…cej rÃ³Å¼ne tricki. AMOR ma takÅ¼e wiele rÃ³Å¼nych
+motywÃ³w zmieniajÄ…cych wyglÄ…d i zachowanie animacji.
 
-Poniewa¿ AMOR dzia³a z zarz±dc± okien KDE, bêdzie dzia³aæ tylko w KDE.
-Mo¿liwe, ¿e AMOR dzia³a z niektórymi innymi zarz±dcami okien zgodnymi
-z KDE, ale nie by³o to testowane.
+PoniewaÅ¼ AMOR dziaÅ‚a z zarzÄ…dcÄ… okien KDE, bÄ™dzie dziaÅ‚aÄ‡ tylko w KDE.
+MoÅ¼liwe, Å¼e AMOR dziaÅ‚a z niektÃ³rymi innymi zarzÄ…dcami okien zgodnymi
+z KDE, ale nie byÅ‚o to testowane.
 
 %package eyes
 Summary:	An xeyes KDE clone
-Summary(pl):	Klon xeyes dla KDE
+Summary(pl.UTF-8):   Klon xeyes dla KDE
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys-amor < 9:3.1.93.031105-2
@@ -104,12 +104,12 @@ Obsoletes:	kdetoys-amor < 9:3.1.93.031105-2
 %description eyes
 An xeyes KDE clone.
 
-%description eyes -l pl
+%description eyes -l pl.UTF-8
 Klon xeyes dla KDE.
 
 %package fifteen
 Summary:	A game: order 15 pieces in a 4x4 square by moving them
-Summary(pl):	Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu 4x4
+Summary(pl.UTF-8):   Gra polegajÄ…ca na uporzÄ…dkowaniu 15 elementÃ³w przesuwajÄ…c siÄ™ w polu 4x4
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 
@@ -117,62 +117,62 @@ Requires:	kdebase-desktop >= %{_minbaseevr}
 A game which goal is to order 15 pieces in a 4x4 square by moving
 them.
 
-%description fifteen -l pl
-Gra polegaj±ca na uporz±dkowaniu 15 elementów przesuwaj±c siê w polu
+%description fifteen -l pl.UTF-8
+Gra polegajÄ…ca na uporzÄ…dkowaniu 15 elementÃ³w przesuwajÄ…c siÄ™ w polu
 4x4.
 
 %package kmoon
 Summary:	System tray applet showing the moon phase
-Summary(pl):	Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca
+Summary(pl.UTF-8):   Aplet dla zasobnika systemowego pokazujÄ…cy fazÄ™ ksiÄ™Å¼yca
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description kmoon
 System tray applet showing the current moon phase.
 
-%description kmoon -l pl
-Aplet dla zasobnika systemowego pokazuj±cy fazê ksiê¿yca.
+%description kmoon -l pl.UTF-8
+Aplet dla zasobnika systemowego pokazujÄ…cy fazÄ™ ksiÄ™Å¼yca.
 
 %package kodo
 Summary:	Mouse movement meter
-Summary(pl):	Licznik dystansu pokonanego przez mysz
+Summary(pl.UTF-8):   Licznik dystansu pokonanego przez mysz
 Group:		X11/Applications
 Requires:	kdebase-core >= %{_minbaseevr}
 
 %description kodo
 Mouse movement and mileage meter.
 
-%description kodo -l pl
+%description kodo -l pl.UTF-8
 Licznik dystansu pokonanego przez mysz.
 
 %package kteatime
 Summary:	System tray applet that makes sure your tea doesn't get too strong
-Summary(pl):	Aplet zasobnika systemowego przypominaj±cy o herbacie
+Summary(pl.UTF-8):   Aplet zasobnika systemowego przypominajÄ…cy o herbacie
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 
 %description kteatime
 System tray applet that makes sure your tea doesn't get too strong.
 
-%description kteatime -l pl
-Applet zasobnika systemowego pilnuj±cy ¿eby herbata nie sta³a siê zbyt
+%description kteatime -l pl.UTF-8
+Applet zasobnika systemowego pilnujÄ…cy Å¼eby herbata nie staÅ‚a siÄ™ zbyt
 mocna.
 
 %package ktux
 Summary:	Tux-in-a-Spaceship screen saver
-Summary(pl):	Wygaszacz ekranu Tux-w-statku-kosmicznym
+Summary(pl.UTF-8):   Wygaszacz ekranu Tux-w-statku-kosmicznym
 Group:		X11/Applications
 Requires:	kdebase-screensavers >= %{_minbaseevr}
 
 %description ktux
 Tux-in-a-Spaceship screen saver.
 
-%description ktux -l pl
+%description ktux -l pl.UTF-8
 Wygaszacz ekranu Tux-w-statku-kosmicznym.
 
 %package kweather
 Summary:	Kicker applet that will display the current weather outside
-Summary(pl):	Aplet kickera wy¶wietlaj±cy aktualn± pogodê na zewn±trz
+Summary(pl.UTF-8):   Aplet kickera wyÅ›wietlajÄ…cy aktualnÄ… pogodÄ™ na zewnÄ…trz
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys
@@ -184,16 +184,16 @@ providing a weather service that can track multiple weather stations
 and provide this information to other applications including
 Konqueror's sidebar and Kontact's summary page.
 
-%description kweather -l pl
-kweather to aplikacja dostarczaj±ca ikonê panelu, umo¿liwiaj±c±
-ogl±danie pogody og³aszanej przez lokaln± stacjê oraz dostarczaj±c±
-serwis pogodowy potrafi±cy ¶ledziæ wiele stacji pogodowych, a tak¿e
-dostarczaj±ca te informacje dla innych aplikacji, w³±cznie z paskiem
-Konquerora oraz stron± podsumowuj±c± Kontacta.
+%description kweather -l pl.UTF-8
+kweather to aplikacja dostarczajÄ…ca ikonÄ™ panelu, umoÅ¼liwiajÄ…cÄ…
+oglÄ…danie pogody ogÅ‚aszanej przez lokalnÄ… stacjÄ™ oraz dostarczajÄ…cÄ…
+serwis pogodowy potrafiÄ…cy Å›ledziÄ‡ wiele stacji pogodowych, a takÅ¼e
+dostarczajÄ…ca te informacje dla innych aplikacji, wÅ‚Ä…cznie z paskiem
+Konquerora oraz stronÄ… podsumowujÄ…cÄ… Kontacta.
 
 %package kworldclock
 Summary:	Daylight area on the world globe
-Summary(pl):	D³ugo¶æ dnia na ca³ym ¶wiecie
+Summary(pl.UTF-8):   DÅ‚ugoÅ›Ä‡ dnia na caÅ‚ym Å›wiecie
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys-ww
@@ -202,8 +202,8 @@ Obsoletes:	kdetoys-ww
 Application and kicker applet showing daylight area on the world
 globe.
 
-%description kworldclock -l pl
-Aplikacja i aplet kickera pokazuj±ca d³ugo¶æ dnia na ca³ym ¶wiecie.
+%description kworldclock -l pl.UTF-8
+Aplikacja i aplet kickera pokazujÄ…ca dÅ‚ugoÅ›Ä‡ dnia na caÅ‚ym Å›wiecie.
 
 %prep
 %setup -q
