@@ -4,10 +4,10 @@
 %define		_minbaseevr	9:%{version}
 
 Summary:	Toys for KDE
-Summary(ja.UTF-8):   KDEデスクトップ環境 - おもちゃ
-Summary(ko.UTF-8):   K 데스크탑 환경 - 장난거리
-Summary(pl.UTF-8):   Zabawki dla KDE
-Summary(zh_CN.UTF-8):   KDE娱乐程序
+Summary(ja.UTF-8):	KDEデスクトップ環境 - おもちゃ
+Summary(ko.UTF-8):	K 데스크탑 환경 - 장난거리
+Summary(pl.UTF-8):	Zabawki dla KDE
+Summary(zh_CN.UTF-8):	KDE娱乐程序
 Name:		kdetoys
 Version:	3.5.6
 Release:	1
@@ -55,7 +55,7 @@ Pakiet kdetoys zawiera różne zabawki dla KDE, w tym:
 
 %package devel
 Summary:	Header files for kdetoys
-Summary(pl.UTF-8):   Pliki nagłówkowe dla kdetoys
+Summary(pl.UTF-8):	Pliki nagłówkowe dla kdetoys
 Group:		X11/Development/Libraries
 Requires:	kdelibs-devel >= %{_minlibsevr}
 
@@ -67,7 +67,7 @@ Pliki nagłówkowe dla kdetoys.
 
 %package amor
 Summary:	Comic figures above your windows
-Summary(pl.UTF-8):   Postacie z komiksów nad okienkami
+Summary(pl.UTF-8):	Postacie z komiksów nad okienkami
 Group:		X11/Applications
 Requires:	kdebase-core >= %{_minbaseevr}
 
@@ -96,7 +96,7 @@ z KDE, ale nie było to testowane.
 
 %package eyes
 Summary:	An xeyes KDE clone
-Summary(pl.UTF-8):   Klon xeyes dla KDE
+Summary(pl.UTF-8):	Klon xeyes dla KDE
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys-amor < 9:3.1.93.031105-2
@@ -109,7 +109,7 @@ Klon xeyes dla KDE.
 
 %package fifteen
 Summary:	A game: order 15 pieces in a 4x4 square by moving them
-Summary(pl.UTF-8):   Gra polegająca na uporządkowaniu 15 elementów przesuwając się w polu 4x4
+Summary(pl.UTF-8):	Gra polegająca na uporządkowaniu 15 elementów przesuwając się w polu 4x4
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 
@@ -123,7 +123,7 @@ Gra polegająca na uporządkowaniu 15 elementów przesuwając się w polu
 
 %package kmoon
 Summary:	System tray applet showing the moon phase
-Summary(pl.UTF-8):   Aplet dla zasobnika systemowego pokazujący fazę księżyca
+Summary(pl.UTF-8):	Aplet dla zasobnika systemowego pokazujący fazę księżyca
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 
@@ -135,7 +135,7 @@ Aplet dla zasobnika systemowego pokazujący fazę księżyca.
 
 %package kodo
 Summary:	Mouse movement meter
-Summary(pl.UTF-8):   Licznik dystansu pokonanego przez mysz
+Summary(pl.UTF-8):	Licznik dystansu pokonanego przez mysz
 Group:		X11/Applications
 Requires:	kdebase-core >= %{_minbaseevr}
 
@@ -147,7 +147,7 @@ Licznik dystansu pokonanego przez mysz.
 
 %package kteatime
 Summary:	System tray applet that makes sure your tea doesn't get too strong
-Summary(pl.UTF-8):   Aplet zasobnika systemowego przypominający o herbacie
+Summary(pl.UTF-8):	Aplet zasobnika systemowego przypominający o herbacie
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 
@@ -160,7 +160,7 @@ mocna.
 
 %package ktux
 Summary:	Tux-in-a-Spaceship screen saver
-Summary(pl.UTF-8):   Wygaszacz ekranu Tux-w-statku-kosmicznym
+Summary(pl.UTF-8):	Wygaszacz ekranu Tux-w-statku-kosmicznym
 Group:		X11/Applications
 Requires:	kdebase-screensavers >= %{_minbaseevr}
 
@@ -172,7 +172,7 @@ Wygaszacz ekranu Tux-w-statku-kosmicznym.
 
 %package kweather
 Summary:	Kicker applet that will display the current weather outside
-Summary(pl.UTF-8):   Aplet kickera wyświetlający aktualną pogodę na zewnątrz
+Summary(pl.UTF-8):	Aplet kickera wyświetlający aktualną pogodę na zewnątrz
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys
@@ -193,7 +193,7 @@ Konquerora oraz stroną podsumowującą Kontacta.
 
 %package kworldclock
 Summary:	Daylight area on the world globe
-Summary(pl.UTF-8):   Długość dnia na całym świecie
+Summary(pl.UTF-8):	Długość dnia na całym świecie
 Group:		X11/Applications
 Requires:	kdebase-desktop >= %{_minbaseevr}
 Obsoletes:	kdetoys-ww
