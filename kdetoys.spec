@@ -9,13 +9,13 @@ Summary(ko):	K µ•Ω∫≈©≈æ »Ø∞Ê - ¿Â≥≠∞≈∏Æ
 Summary(pl):	Zabawki dla KDE
 Summary(zh_CN):	KDE”È¿÷≥Ã–Ú
 Name:		kdetoys
-Version:	3.5.6
-Release:	1
+Version:	3.5.7
+Release:	0.1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	7d4f1a33e5379f789fcbf17b9e503bfd
+# Source0-md5:	946e58b53ac4e6374051736a0eb4cf92
 #Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-screensavers.patch
