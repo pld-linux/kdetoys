@@ -242,6 +242,8 @@ rm -rf *.lang
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/kde3/*.la
+
 %find_lang amor		--with-kde
 %find_lang kmoon	--with-kde
 %find_lang kodo		--with-kde
@@ -255,6 +257,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*.h
+%{_libdir}/lib*.la
 
 %files amor -f amor.lang
 %defattr(644,root,root,755)
@@ -265,19 +268,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files eyes
 %defattr(644,root,root,755)
-%{_libdir}/kde3/eyes_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/eyes_panelapplet.so
 %{_datadir}/apps/kicker/applets/eyesapplet.desktop
 
 %files fifteen
 %defattr(644,root,root,755)
-%{_libdir}/kde3/fifteen_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/fifteen_panelapplet.so
 %{_datadir}/apps/kicker/applets/kfifteenapplet.desktop
 
 %files kmoon -f kmoon.lang
 %defattr(644,root,root,755)
-%{_libdir}/kde3/kmoon_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/kmoon_panelapplet.so
 %{_datadir}/apps/kicker/applets/kmoonapplet.desktop
 %{_datadir}/apps/kmoon
@@ -308,15 +308,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kweatherreport
 %attr(755,root,root) %{_bindir}/kweatherservice
-%{_libdir}/libkdeinit_kweatherreport.la
 %attr(755,root,root) %{_libdir}/libkdeinit_kweatherreport.so
-%{_libdir}/kde3/kcm_weather.la
 %attr(755,root,root) %{_libdir}/kde3/kcm_weather.so
-%{_libdir}/kde3/kcm_weatherservice.la
 %attr(755,root,root) %{_libdir}/kde3/kcm_weatherservice.so
-%{_libdir}/kde3/kweatherreport.la
 %attr(755,root,root) %{_libdir}/kde3/kweatherreport.so
-%{_libdir}/kde3/weather_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/weather_panelapplet.so
 %{_datadir}/apps/kicker/applets/kweather.desktop
 %{_datadir}/apps/kweatherservice
@@ -333,6 +328,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdesktop/programs/kdeworld.desktop
 %{_desktopdir}/kde/kworldclock.desktop
 %{_iconsdir}/*/*/*/kworldclock*
-%{_libdir}/kde3/ww_panelapplet.la
 %attr(755,root,root) %{_libdir}/kde3/ww_panelapplet.so
 %{_datadir}/apps/kicker/applets/kwwapplet.desktop
