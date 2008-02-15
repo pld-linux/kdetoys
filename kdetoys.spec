@@ -9,13 +9,13 @@ Summary(ko.UTF-8):	K 데스크탑 환경 - 장난거리
 Summary(pl.UTF-8):	Zabawki dla KDE
 Summary(zh_CN.UTF-8):	KDE娱乐程序
 Name:		kdetoys
-Version:	3.5.8
+Version:	3.5.9
 Release:	1
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	b42c1f08e5c4ac93a04aadb75679139f
+# Source0-md5:	10fd55e004a582f87eed6796811bb3b8
 #Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-screensavers.patch
