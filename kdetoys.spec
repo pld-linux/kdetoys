@@ -9,13 +9,13 @@ Summary(ko.UTF-8):	K 데스크탑 환경 - 장난거리
 Summary(pl.UTF-8):	Zabawki dla KDE
 Summary(zh_CN.UTF-8):	KDE娱乐程序
 Name:		kdetoys
-Version:	3.5.8
-Release:	1
+Version:	3.5.9
+Release:	2
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	b42c1f08e5c4ac93a04aadb75679139f
+# Source0-md5:	10fd55e004a582f87eed6796811bb3b8
 #Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-screensavers.patch
@@ -235,15 +235,23 @@ cp %{_datadir}/automake/config.sub admin
 %{__make}
 
 %install
-rm -rf $RPM_BUILD_ROOT
-rm -rf *.lang
+if [ ! -f makeinstall.stamp -o ! -d $RPM_BUILD_ROOT ]; then
+	rm -rf makeinstall.stamp installed.stamp $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+	%{__make} install \
+		DESTDIR=$RPM_BUILD_ROOT \
+		kde_htmldir=%{_kdedocdir}
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/kde3/*.la
+	touch makeinstall.stamp
+fi
 
+if [ ! -f installed.stamp ]; then
+	rm -f $RPM_BUILD_ROOT%{_libdir}/kde3/*.la
+
+	touch installed.stamp
+fi
+
+rm -f *.lang
 %find_lang amor		--with-kde
 %find_lang kmoon	--with-kde
 %find_lang kodo		--with-kde
