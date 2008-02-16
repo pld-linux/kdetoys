@@ -235,15 +235,23 @@ cp %{_datadir}/automake/config.sub admin
 %{__make}
 
 %install
-rm -rf $RPM_BUILD_ROOT
-rm -rf *.lang
+if [ ! -f makeinstall.stamp -o ! -d $RPM_BUILD_ROOT ]; then
+	rm -rf makeinstall.stamp installed.stamp $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+	%{__make} install \
+		DESTDIR=$RPM_BUILD_ROOT \
+		kde_htmldir=%{_kdedocdir}
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/kde3/*.la
+	touch makeinstall.stamp
+fi
 
+if [ ! -f installed.stamp ]; then
+	rm -f $RPM_BUILD_ROOT%{_libdir}/kde3/*.la
+
+	touch installed.stamp
+fi
+
+rm -f *.lang
 %find_lang amor		--with-kde
 %find_lang kmoon	--with-kde
 %find_lang kodo		--with-kde
