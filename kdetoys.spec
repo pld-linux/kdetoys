@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Zabawki dla KDE
 Summary(zh_CN.UTF-8):	KDE娱乐程序
 Name:		kdetoys
 Version:	3.5.10
-Release:	2
+Release:	3
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
