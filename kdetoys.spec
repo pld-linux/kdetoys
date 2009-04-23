@@ -207,12 +207,12 @@ Aplikacja i aplet kickera pokazująca długość dnia na całym świecie.
 
 %prep
 %setup -q
-%patch100 -p1
+%patch100 -p0
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 
-for f in `find . -name \*.desktop`; do
+for f in $(find . -name '*.desktop'); do
 	if grep -q '\[ven\]' $f; then
 		sed -i -e 's/\[ven\]/[ve]/' $f
 	fi
