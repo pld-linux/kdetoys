@@ -10,13 +10,13 @@ Summary(pl.UTF-8):	Zabawki dla KDE
 Summary(zh_CN.UTF-8):	KDE娱乐程序
 Name:		kdetoys
 Version:	3.5.10
-Release:	3
+Release:	4
 Epoch:		9
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	1da4383e2d520dfd572edb33b708822d
-#Patch100:	%{name}-branch.diff
+Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-screensavers.patch
 Patch2:		kde-ac260-lt.patch
@@ -207,7 +207,7 @@ Aplikacja i aplet kickera pokazująca długość dnia na całym świecie.
 
 %prep
 %setup -q
-#%%patch100 -p1
+%patch100 -p1
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
