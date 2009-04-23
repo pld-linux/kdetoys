@@ -1,7 +1,7 @@
 Index: kworldwatch/maploader.cpp
 ===================================================================
---- kworldwatch/maploader.cpp	(.../tags/KDE/3.5.10/kdetoys)	(revision 958024)
-+++ kworldwatch/maploader.cpp	(.../branches/KDE/3.5/kdetoys)	(revision 958024)
+--- kworldwatch/maploader.cpp	(.../tags/KDE/3.5.10/kdetoys)	(revision 958029)
++++ kworldwatch/maploader.cpp	(.../branches/KDE/3.5/kdetoys)	(revision 958029)
 @@ -88,11 +88,11 @@
    // find the closest (bigger) size
    uint size=0;
