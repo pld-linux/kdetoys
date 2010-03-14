@@ -233,6 +233,7 @@ cp %{_datadir}/automake/config.sub admin
 	--with-qt-libraries=%{_libdir}
 
 %{__make}
+rm -f makeinstall.stamp
 
 %install
 if [ ! -f makeinstall.stamp -o ! -d $RPM_BUILD_ROOT ]; then
