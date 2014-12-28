@@ -23,7 +23,7 @@ Patch2:		kde-ac260-lt.patch
 URL:		http://www.kde.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	kdebase-devel >= %{_minbaseevr}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
